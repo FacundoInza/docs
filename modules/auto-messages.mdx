@@ -1,0 +1,73 @@
+---
+title: "Automatic Messages for Every Binance P2P Order Event"
+sidebarTitle: "Auto Messages"
+description: "Configure Silver5 AI to send the right message automatically for every P2P order event — new order, payment received, and order completed."
+---
+
+Automatic Messages lets you configure templated messages that Silver5 AI sends to customers instantly when key events happen during a P2P order. No manual typing, no delays, no missed messages. As soon as Binance fires an event — a new order, a payment confirmation, a completed trade — Silver5 AI detects it and sends the right message to your counterparty in the Binance P2P chat without you lifting a finger.
+
+## Why It Matters
+
+Keeping your P2P counterparties informed at every step of an order is one of the most effective ways to reduce cancellations. When buyers and sellers don't know what's happening, they get anxious and cancel. Silver5 AI customers who activate Automatic Messages report a **40% reduction in cancellations**, simply because customers receive immediate confirmation at each stage instead of waiting in silence. Consistent, professional communication also builds trust and encourages repeat business.
+
+## Supported Events
+
+Silver5 AI watches for three critical events in the Binance P2P order lifecycle and can send a message automatically for each one.
+
+| Event | Trigger | Typical Use |
+|---|---|---|
+| **TRADING** (New Order) | A new buy or sell order is created | Welcome the counterparty, set expectations, share any instructions they need immediately |
+| **PAID** | The customer marks the order as paid (sell orders) or you confirm payment (buy orders) | Confirm you received the payment notification, tell them what happens next |
+| **COMPLETED** | The order is released and marked complete | Thank the counterparty, confirm the trade is done, include any follow-up instructions |
+
+## Separate Messages for Buys and Sells
+
+Every event supports independent message templates for **BUY orders** and **SELL orders**. This matters because the instructions you need to give differ significantly depending on the direction of the trade.
+
+For a **SELL order**, when a new order is created you might want to share your payment method details and ask the buyer to transfer funds. For a **BUY order** at the same event, you might want to confirm you are reviewing the order and will release crypto once payment is received. Separate templates let you deliver exactly the right message for each scenario without any conditional logic on your end.
+
+## Configure Automatic Messages
+
+<Steps>
+  <Step title="Open the Auto Messages module">
+    In your Silver5 AI dashboard, go to **Modules → Auto Messages**. You'll see the three available event types listed.
+  </Step>
+  <Step title="Select an event type">
+    Click the event you want to configure — for example, **TRADING** to set up your new-order message.
+  </Step>
+  <Step title="Choose Buy or Sell (or configure both)">
+    Select whether you're configuring the message for **BUY** orders, **SELL** orders, or both. You can configure each direction independently and come back to add or edit the other at any time.
+  </Step>
+  <Step title="Write your message template">
+    Enter the message text. Use dynamic variables to personalize the message automatically for each order:
+
+    - `{{orderAmount}}` — the amount of the order
+    - `{{asset}}` — the crypto asset (e.g., USDT)
+    - `{{paymentMethod}}` — the payment method selected by the counterparty
+    - `{{fiatCurrency}}` — the fiat currency of the order (e.g., ARS, BRL)
+
+    **Example SELL / TRADING message:**
+    ```
+    Hi! Thank you for your order of {{orderAmount}} {{asset}}.
+    Please send the payment via {{paymentMethod}} and mark the order as paid once done.
+    We will release your crypto as soon as we confirm receipt.
+    ```
+  </Step>
+  <Step title="Save the template">
+    Click **Save**. The message is active immediately — Silver5 AI will send it automatically for all future orders that match the event type and order direction you configured.
+  </Step>
+</Steps>
+
+## Best Practices for Message Content
+
+A well-written automatic message reduces friction and keeps the order moving forward. Keep these guidelines in mind when writing your templates:
+
+- **Confirm the order details** — include `{{orderAmount}}` and `{{asset}}` so the counterparty can verify immediately that the right order was triggered.
+- **Tell the customer exactly what to do next** — don't make them guess. Say "please send payment and mark as paid" or "please wait while we verify your payment."
+- **Include payment method details for SELL orders** — if you need the buyer to transfer to a specific account, include the details in the TRADING message so they have everything they need from the start.
+- **Keep it concise and professional** — one to three sentences is usually enough. Long messages get skimmed or ignored.
+- **Avoid all-caps or excessive punctuation** — it looks unprofessional and can trigger spam filters.
+
+<Note>
+  Automatic messages are sent directly in the **Binance P2P chat** and do **not** require the AI Agent module to be active. You can use Automatic Messages as a standalone module even if you haven't enabled the AI Agent.
+</Note>

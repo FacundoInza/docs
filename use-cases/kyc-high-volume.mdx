@@ -1,0 +1,69 @@
+---
+title: "KYC Compliance at Scale for High-Volume P2P Operations"
+sidebarTitle: "KYC at Scale"
+description: "Learn how Silver5 AI handles identity verification for high-volume P2P desks using automated Didit flows, complete audit trails, and AI-guided onboarding."
+---
+
+High-volume P2P operations face a compliance challenge: verifying identity manually for every counterparty creates friction, errors, and inconsistency. This use case shows how Silver5 AI automates the KYC process end to end — from initial verification to audit-ready records.
+
+## The challenge
+
+Manual KYC creates inconsistent records, delays, and relies on individual operator judgment. When volume is high, screenshots and spreadsheets don't scale — and regulators expect standardized, auditable evidence. One operator following up on a document via chat while another uses a different checklist means your compliance posture is only as strong as your least consistent team member.
+
+## How Silver5 AI solves it
+
+<Steps>
+  <Step title="Enable KYC & Client Management and connect your verification provider">
+    Activate the KYC & Client Management module and connect Didit (free) or Sumsub. Didit is available at no additional cost and integrates directly into the Silver5 workflow.
+  </Step>
+  <Step title="Enable the AI Agent to request KYC automatically on new orders">
+    Configure the AI Agent to trigger a KYC request as soon as a new order is created. The customer receives a verification prompt within seconds — before any payment step begins.
+  </Step>
+  <Step title="Choose your KYC delivery mode">
+    Select Link mode to redirect the customer to a hosted Didit verification page, or Manual mode to guide them through document submission directly inside the Binance P2P chat.
+  </Step>
+  <Step title="The AI Agent guides the customer through document submission">
+    The agent handles the entire customer-facing interaction — explaining what's needed, answering common questions, and following up if a submission is incomplete or unclear.
+  </Step>
+  <Step title="Didit verifies the identity and returns a result">
+    Document authenticity, biometric matching, and liveness detection are processed automatically. Results are returned in under 2 minutes in most cases.
+  </Step>
+  <Step title="Operators review and approve or reject from the Clients panel">
+    Your team sees each verification result in the Clients panel alongside the linked order and chat history. Approval or rejection is a single action with a full record attached.
+  </Step>
+  <Step title="All records are stored with timestamps and linked to order history">
+    Every verification — successful or failed — is logged with a timestamp and tied to the specific order and customer. Records are available for export at any time.
+  </Step>
+</Steps>
+
+## Indicative results
+
+<CardGroup cols={2}>
+  <Card title="~2 min average verification time" icon="stopwatch">
+    Didit returns document and biometric results in under 2 minutes, keeping the customer experience fast and reducing order abandonment.
+  </Card>
+  <Card title="+40% completion rate vs. manual process" icon="chart-line">
+    Guided, automated flows remove the friction that causes customers to abandon manual KYC requests mid-process.
+  </Card>
+  <Card title="100% of verifications linked to orders" icon="link">
+    Every KYC result is automatically connected to the order that triggered it — no manual record-matching required.
+  </Card>
+  <Card title="Audit-ready export for compliance reviews" icon="file-export">
+    Full client records and verification histories can be exported on demand, giving your compliance team everything they need for internal or external reviews.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Use multiple KYC levels (available on Advanced and Enterprise plans) to apply different verification requirements based on order size or risk classification. For example, orders above a certain threshold can trigger enhanced due diligence automatically.
+</Tip>
+
+## Recommended modules
+
+<CardGroup cols={2}>
+  <Card title="KYC & Client Management" icon="id-card" href="/modules/kyc-client-management">
+    Client database with order history, Didit and Sumsub integration, configurable KYC levels, and exportable records for compliance reviews.
+  </Card>
+  <Card title="AI Agent" icon="microchip" href="/modules/ai-agent">
+    Conversational AI that guides customers through KYC flows, handles routine chat interactions, and escalates to operators when needed.
+  </Card>
+</CardGroup>

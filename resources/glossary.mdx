@@ -1,0 +1,111 @@
+---
+title: "P2P Trading Glossary for Silver5 AI Users"
+sidebarTitle: "Glossary"
+description: "Definitions of key terms used in Binance P2P trading and the Silver5 AI platform — from API keys and AML to repricing, escrow, and VASPs."
+---
+
+This glossary defines the key terms you'll encounter when using Silver5 AI and operating on Binance P2P. Refer to it as you configure your account, read documentation, or communicate with compliance teams. Terms are listed alphabetically.
+
+---
+
+## A
+
+**AML (Anti-Money Laundering)**
+
+AML is the framework of controls used to detect, report, and prevent transactions linked to financial crime. P2P merchants operating at scale are typically expected to implement AML procedures — including transaction monitoring and risk-based counterparty reviews. See the [VASP & Compliance guide](/resources/vasp-compliance) for more context.
+
+**AML Screening**
+
+An automated check that evaluates a customer's identity against sanctions lists, politically exposed persons (PEP) databases, and adverse media sources. Both Didit and Sumsub — the KYC providers integrated in Silver5 AI — offer AML screening as part of their verification flows.
+
+**API Key**
+
+A programmatic credential that allows Silver5 AI to interact with your Binance account based on the permissions you configure. You create the API key in your Binance account settings and connect it to Silver5. Silver5 AI requires only read and P2P-level access — withdrawal permission is never needed or requested.
+
+**API Key (No Withdrawal)**
+
+A Binance API key configured specifically without the withdrawal permission enabled. Silver5 AI uses this configuration so that funds cannot be moved outside your account without your direct action in Binance. This is the recommended — and required — setup for all Silver5 connections.
+
+---
+
+## B
+
+**Binance P2P**
+
+The peer-to-peer marketplace inside Binance where users trade fiat currency for crypto directly with each other, facilitated by Binance's escrow system. Merchants publish ads with prices, limits, and accepted payment methods; counterparties accept and complete trades through a time-limited order process.
+
+---
+
+## E
+
+**Escrow (P2P)**
+
+The temporary custody of crypto held by the exchange (Binance) while a P2P trade is in progress. When a buyer initiates an order, the seller's crypto is locked in escrow. Funds are released to the buyer only after the seller confirms receipt of the fiat payment. Escrow protects both parties from non-payment or non-delivery.
+
+---
+
+## K
+
+**KYC (Know Your Customer)**
+
+The process of verifying a customer's identity before or during a transaction. On Binance P2P, Binance applies its own KYC requirements to all users. Merchants may also apply additional counterparty KYC as part of their own compliance or risk management policies. Silver5 AI automates this process via Didit or Sumsub integration.
+
+---
+
+## L
+
+**Liveness Detection**
+
+A biometric check that confirms the person submitting a selfie is physically present — not using a static photo or a video replay. Liveness detection is used in Silver5 AI's KYC flow via Didit to reduce the risk of identity fraud during document verification.
+
+---
+
+## M
+
+**Merchant P2P**
+
+A professional or semi-professional operator who publishes P2P ads at scale on a platform like Binance. Merchants typically manage volume, spreads, counterparty reputation, and operational workflows across multiple accounts or pairs.
+
+---
+
+## O
+
+**Order (P2P)**
+
+The time-limited commitment created when one user accepts another user's P2P ad. An order includes a payment window (the time the buyer has to send fiat) and a release window (the time the seller has to confirm and release crypto). Orders can be managed, prioritized, and filtered in Silver5 AI's [Order Management](/modules/order-management) module.
+
+---
+
+## P
+
+**P2P (Peer-to-Peer)**
+
+A model of direct exchange between individuals, mediated by a platform that holds the crypto asset in escrow until both parties confirm the fiat payment has been completed. P2P trading enables fiat-to-crypto conversion without using a centralized exchange order book.
+
+**POA (Proof of Address)**
+
+A document proving a customer's residential address — typically a utility bill, bank statement, or government-issued document. POA is commonly requested as part of enhanced KYC (EDD) procedures, particularly for higher-risk or higher-value counterparties.
+
+---
+
+## R
+
+**Repricing**
+
+The act of updating the price on a P2P ad to remain competitive in the market listing. In manual operations, repricing requires constant attention and is time-intensive during peak hours. Silver5 AI's Positioning Bot automates repricing every 5 seconds, within configurable price floors and ceilings.
+
+---
+
+## S
+
+**Spread**
+
+The difference between your ad price and a reference rate — such as a competitor's price, the market mid-price, or your own cost target. Your spread determines your margin per trade. Silver5 AI's Positioning Bot allows you to configure spread-aware pricing so you stay competitive without giving up more margin than intended.
+
+---
+
+## V
+
+**VASP (Virtual Asset Service Provider)**
+
+A regulatory category used in many jurisdictions to describe businesses that intermediate virtual assets — including exchanges, P2P desks, and OTC operations. VASPs are typically subject to AML and KYC regulations under frameworks such as FATF guidelines. See the [VASP & Compliance guide](/resources/vasp-compliance) for how Silver5 AI supports VASP-grade operational requirements.

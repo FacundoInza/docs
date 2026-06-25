@@ -1,0 +1,135 @@
+---
+title: "AI Agent: 24/7 Automated Chat and KYC for P2P Orders"
+sidebarTitle: "AI Agent"
+description: "The Silver5 AI Agent responds to Binance P2P chats automatically, guides customers through KYC, and escalates complex cases — reducing support load by 90%."
+---
+
+The AI Agent is a conversational AI that responds to your Binance P2P customers automatically — 24/7 — handling common questions, sending KYC verification requests, and escalating complex conversations to your human operators when needed. You configure it once, and it works continuously in the background: greeting new customers, collecting identity documents, answering FAQs, and keeping your orders moving without requiring your team to monitor every chat.
+
+## Key results
+
+<CardGroup cols={3}>
+  <Card title="90% Less Support Load" icon="arrow-trend-down">
+    Your team handles only complex cases. The agent takes care of everything else — greetings, KYC requests, and routine questions.
+  </Card>
+  <Card title="Instant Responses" icon="stopwatch">
+    Customers receive a reply in under 2 seconds from the moment an order is created. No waiting, no frustration.
+  </Card>
+  <Card title="+92% Customer Satisfaction" icon="face-smile">
+    Immediate, consistent, professional responses — every time — produce measurably happier customers and better ratings.
+  </Card>
+  <Card title="100% Available" icon="clock">
+    The agent never sleeps, never takes weekends off, and never misses a message. Full 24/7 coverage, always.
+  </Card>
+  <Card title="75% Lower Support Costs" icon="coins">
+    Dramatically reduce the staffing required to manage your P2P chat operations at scale.
+  </Card>
+  <Card title="Full KYC in Chat" icon="id-card">
+    Collect identity documents, selfies, liveness checks, and proof of address — entirely inside the Binance P2P chat.
+  </Card>
+</CardGroup>
+
+## What the AI Agent does
+
+The AI Agent handles the full lifecycle of a P2P customer interaction, from the moment an order is placed to the moment it closes:
+
+- Greets customers on new orders with a professional, fully customizable welcome message
+- Sends KYC verification requests automatically — using either Link Mode or Manual (in-chat) Mode
+- Answers common questions using your custom knowledge base (FAQs, policies, procedures, and any instructions you define)
+- Detects when a conversation requires a human — disputes, unusual requests, confusion after multiple exchanges — and escalates intelligently to an available operator
+- Operates continuously with no downtime, across all your connected Binance accounts simultaneously
+
+## Simulation vs Live modes
+
+Before going live with real customers, Silver5 lets you train and test your agent safely. Use the mode that matches where you are in setup.
+
+<Tabs>
+  <Tab title="Simulate Mode">
+    Simulate Mode lets you test your agent's full behavior without sending any real messages to customers. Every response the agent would generate is shown to you — but nothing reaches Binance.
+
+    **Use Simulate Mode to:**
+    - Preview exactly what the agent would say in response to any customer message
+    - Load past real conversations from your order history and see how the agent would have handled them
+    - Refine your knowledge base and escalation rules based on what you observe
+    - Validate KYC flow responses before exposing them to real customers
+    - Onboard new operators by letting them watch the agent in action before going live
+
+    There's no risk and no customer-facing impact while you're in Simulate Mode. Stay here until you're confident.
+  </Tab>
+  <Tab title="Live Mode">
+    Live Mode activates the agent for real customer conversations across all your connected Binance P2P accounts. From the moment you switch to Live, the agent responds automatically to every new order.
+
+    **In Live Mode, the agent:**
+    - Handles actual customer conversations in real time, 24/7
+    - Sends KYC verification requests automatically on new orders (if configured)
+    - Escalates complex or flagged conversations to your human operators
+    - Tracks satisfaction metrics and response performance in your Silver5 dashboard
+    - Continues to learn from your knowledge base updates without requiring a restart
+  </Tab>
+</Tabs>
+
+## KYC verification modes
+
+The AI Agent integrates directly with the KYC & Client Management module, triggering identity verification as part of the normal order conversation. Two modes are available:
+
+<CardGroup cols={2}>
+  <Card title="Link Mode" icon="link">
+    The agent sends a Didit-powered verification link directly in the Binance P2P chat. The customer clicks the link, completes their document upload, selfie, and liveness check inside Didit's hosted interface, and Silver5 records the result automatically.
+
+    Simple to set up, familiar to most customers, and reliable for merchants who prefer a traditional KYC flow.
+  </Card>
+  <Card title="Manual Mode (In-Chat)" icon="comments">
+    The agent collects everything — ID front, ID back, selfie, liveness check, proof of address, and phone number — directly inside the Binance chat. No external links. No redirects. No drop-off from broken URLs inside the Binance app.
+
+    The agent walks the customer through each step conversationally, processes each submission using Didit's engine, and saves the complete verification result to the client's profile in Silver5.
+  </Card>
+</CardGroup>
+
+For full details on KYC levels, document types, and compliance exports, see the [KYC & Client Management](/modules/kyc-client-management) module documentation.
+
+## How to configure the AI Agent
+
+<Steps>
+  <Step title="Go to Modules → AI Agent">
+    Open the Silver5 dashboard and navigate to **Modules** in the left sidebar. Select **AI Agent** to open the agent configuration screen.
+  </Step>
+  <Step title="Set your agent's persona">
+    Define how your agent presents itself to customers. Set a **name** (e.g., your brand name or a neutral assistant name), choose a **tone** (formal or casual), and select the primary **language** the agent should use. You can configure multiple languages for multilingual operations.
+  </Step>
+  <Step title="Add your knowledge base">
+    Paste in the content your agent should draw on when answering customer questions: FAQs, trading policies, payment instructions, limits, and any other guidelines you want the agent to follow. The more context you provide, the more accurately the agent responds.
+  </Step>
+  <Step title="Configure KYC mode">
+    Select **Link Mode** (agent sends a Didit verification link in chat) or **Manual Mode** (agent collects all documents directly in the Binance chat). Match this to the mode you configured in the KYC & Client Management module.
+  </Step>
+  <Step title="Set escalation triggers">
+    Define the conditions under which the agent should hand off a conversation to a human operator. Common triggers include: the word "dispute", a customer repeating the same question more than twice, mentions of payment issues, or any message the agent cannot answer confidently from the knowledge base.
+  </Step>
+  <Step title="Test in Simulate Mode">
+    Before activating the agent with real customers, switch to **Simulate Mode** and run practice conversations. Paste in messages from your most common past interactions and review the agent's responses. Adjust your knowledge base and escalation settings until the output is exactly what you'd want a customer to receive.
+  </Step>
+  <Step title="Activate Live Mode">
+    When you're satisfied with the agent's behavior, switch to **Live Mode**. The agent will immediately begin responding to real customer conversations across all connected Binance accounts. Monitor the first few hours from the dashboard to confirm everything is working as expected.
+  </Step>
+</Steps>
+
+## Escalation
+
+When the AI Agent detects a conversation that exceeds its confidence or falls into a predefined escalation category, it automatically flags the chat and notifies your team. Escalation happens without interrupting the customer — the agent hands off gracefully, and an operator picks up the conversation from the Silver5 dashboard.
+
+Escalation is triggered by:
+
+- **Disputes or appeals** — Any message that signals a payment problem or order dispute
+- **Unusual requests** — Instructions or questions outside the agent's knowledge base that could indicate fraud or an edge case
+- **Repeated confusion** — When a customer asks the same question multiple times without resolution
+- **Manual escalation rules** — Custom triggers you define in the escalation settings
+
+Operators receive a notification via the Silver5 dashboard (and optionally by email or mobile) so they can respond promptly. All prior messages in the conversation are visible in context, so operators never start blind.
+
+<Tip>
+  Start with Simulate Mode and review the agent's responses against 10–20 of your most common past conversations before going live. This one step will catch most edge cases and significantly reduce the need for manual escalation in the first days after launch.
+</Tip>
+
+<Note>
+  The AI Agent with full KYC capability is available on the **Advanced** plan (10M tokens/month) and **Enterprise** plan. Basic and Pro plans include automatic messages but do not include the full conversational AI Agent or in-chat KYC collection.
+</Note>

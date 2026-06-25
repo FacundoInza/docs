@@ -1,0 +1,136 @@
+---
+title: "KYC and Client Management for Binance P2P Merchants"
+sidebarTitle: "KYC & Clients"
+description: "Automate identity verification for your P2P customers using Didit or Sumsub. Verify documents, selfies, and liveness in under 2 minutes, 100% free via Didit."
+---
+
+The KYC & Client Management module lets you verify the identity of your P2P counterparties automatically — in under 2 minutes — using Didit or Sumsub. All verification results and client records are stored centrally, linked to their order history. Whether you're a high-volume VASP or an independent P2P merchant, this module gives you the compliance infrastructure to onboard customers confidently, reduce fraud, and stay audit-ready without adding manual work.
+
+## Key results
+
+<CardGroup cols={3}>
+  <Card title="95% Faster Verification" icon="bolt">
+    From 2–3 days of manual review down to under 2 minutes. Instant, automated verification for every customer.
+  </Card>
+  <Card title="99.8% Accuracy" icon="bullseye">
+    Machine learning-powered risk detection and document analysis. Near-zero false positives.
+  </Card>
+  <Card title="+67% Completion Rate" icon="arrow-trend-up">
+    A frictionless, fast process means more customers finish their verification — and more orders close.
+  </Card>
+  <Card title="80% Lower Compliance Costs" icon="piggy-bank">
+    Eliminate manual review overhead. Silver5 automates the entire verification workflow end-to-end.
+  </Card>
+  <Card title="100% Free via Didit" icon="circle-check">
+    Silver5 covers the cost of KYC verification through the official Didit integration. No hidden fees.
+  </Card>
+  <Card title="220+ Countries" icon="globe">
+    Validate identity documents from over 220 countries. Accept customers from anywhere in the world.
+  </Card>
+</CardGroup>
+
+## KYC providers
+
+Silver5 supports two identity verification providers. Choose the one that fits your compliance needs.
+
+<CardGroup cols={2}>
+  <Card title="Didit" icon="shield-halved">
+    Silver5's official KYC partner. Verification is **completely free** — Silver5 covers the cost. Didit supports document validation, liveness detection, biometric matching, and AML screening for 220+ countries. Recommended for all plans.
+  </Card>
+  <Card title="Sumsub" icon="id-card">
+    A premium KYC provider with advanced risk scoring and compliance tooling. Ideal for high-risk or regulated environments that require deeper due diligence. [Contact us](mailto:office@silver5ai.com) to enable Sumsub on your account.
+  </Card>
+</CardGroup>
+
+## KYC modes
+
+Silver5 gives you two ways to run verification, depending on your customer experience preferences.
+
+<Tabs>
+  <Tab title="Link Mode">
+    In Link Mode, your customer receives a verification link — delivered automatically via the Binance P2P chat — that takes them to Didit's hosted verification interface. They complete the process in Didit's secure environment, and Silver5 records the result automatically as soon as verification finishes.
+
+    **Best for:** Merchants who want a clean, branded verification experience with minimal setup.
+
+    - Customer receives a link in the chat
+    - Completes document upload, selfie, and liveness check inside Didit's interface
+    - Silver5 captures the result instantly and updates the client's profile
+    - No manual follow-up required
+  </Tab>
+  <Tab title="Manual Mode (In-Chat)">
+    In Manual Mode, the entire verification happens inside the Binance P2P chat — no external links, no redirects. The AI Agent guides your customer step-by-step, collecting each required item directly in the conversation.
+
+    **Best for:** Merchants who want maximum conversion and minimal drop-off (broken links inside Binance can cause customers to abandon verification).
+
+    The agent collects the following in sequence:
+    - Front of ID document (photo)
+    - Back of ID document (photo)
+    - Selfie + liveness check
+    - Proof of address (POA)
+    - Phone number validation
+
+    All data is processed using Didit's engine and the result is saved to the client profile in Silver5 automatically.
+  </Tab>
+</Tabs>
+
+## What gets verified
+
+Every KYC verification — regardless of mode — covers the following checks:
+
+- Front of ID document (passport, national ID, driver's license)
+- Back of ID document
+- Selfie + liveness detection (confirms the person is present and alive)
+- Proof of address (POA)
+- Phone number validation
+- OCR data extraction (reads and parses document text automatically)
+- Biometric matching (selfie ↔ document photo comparison)
+- Tampered document detection (flags edited or fraudulent documents)
+
+## Client database
+
+Every verified customer gets a persistent profile in the Clients module. Each profile contains:
+
+- **Verification status** — Pending, Approved, Rejected, or Expired
+- **Document information** — Document type, number, expiry date, and issuing country (extracted via OCR)
+- **Order history** — All P2P orders linked to this customer
+- **Risk score** — Assigned by Didit or Sumsub based on AML screening and document analysis
+- **KYC review notes** — Internal notes added by your operators
+
+Your operators can review incoming verifications, inspect document photos and biometric results, and approve or reject each KYC directly from the Clients panel — without switching tabs or using a separate tool.
+
+## How to set up KYC
+
+<Steps>
+  <Step title="Go to Modules → Clients & KYC">
+    Open the Silver5 dashboard and navigate to **Modules** in the left sidebar. Select **Clients & KYC** to open the module settings.
+  </Step>
+  <Step title="Select your KYC provider">
+    Choose **Didit** (recommended — zero cost, fully integrated) or **Sumsub** (contact support to enable). Your selection determines which verification engine processes documents and liveness checks.
+  </Step>
+  <Step title="Choose your KYC mode">
+    Select **Link Mode** to send customers to Didit's hosted interface, or **Manual Mode** to run the entire verification inside the Binance P2P chat. You can switch modes at any time.
+  </Step>
+  <Step title="Set your KYC levels">
+    Define what documents and checks are required at each KYC level (levels 1–5 available on Advanced and Enterprise plans). For example, Level 1 might require only an ID document, while Level 3 might also require proof of address and AML screening.
+  </Step>
+  <Step title="Enable the AI Agent to request KYC automatically (optional but recommended)">
+    Turn on the AI Agent's KYC trigger so it automatically sends a verification request to new customers when an order is created. This removes any manual step from your workflow and ensures no customer is missed.
+  </Step>
+  <Step title="Review and approve verifications from the Clients panel">
+    Open **Modules → Clients** to see all incoming and completed verifications. Review the results, inspect document images, and approve or reject each customer. Approved customers are immediately available for trading.
+  </Step>
+</Steps>
+
+## Reports and compliance exports
+
+The Clients module includes built-in reporting tools designed for compliance teams and auditors. From the Clients panel, you can:
+
+- Generate compliance-ready reports filtered by date range, verification status, or risk score
+- Export full client records, including verification timestamps, document metadata, OCR-extracted data, and operator review notes
+- Download audit logs suitable for regulatory submissions or internal risk reviews
+
+All exports are formatted for easy handoff to compliance officers, legal teams, or external auditors.
+
+<Note>
+  KYC verification via Didit is completely free — Silver5 covers the cost. Multiple KYC levels (1–5) are available on the **Advanced** and **Enterprise** plans. Basic and Pro plans include single-level KYC.
+</Note>

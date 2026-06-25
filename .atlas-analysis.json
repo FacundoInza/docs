@@ -1,0 +1,105 @@
+{
+  "projectType": "saas",
+  "projectName": "Silver5 AI",
+  "projectDescription": "Silver5 AI is a SaaS platform that automates Binance P2P trading operations — including price positioning, order management, KYC verification, and AI-powered chat — for merchants, VASPs, and OTC desks across Latin America.",
+  "theme": "luma",
+  "primaryColor": "#2e719f",
+  "lightColor": "#97c9dd",
+  "darkColor": "#f3f8f2",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Getting Started",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "introduction",
+              "how-it-works",
+              "free-trial"
+            ]
+          },
+          {
+            "group": "Setup",
+            "pages": [
+              "setup/connect-binance",
+              "setup/invite-operators",
+              "setup/plans-billing"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Modules",
+        "groups": [
+          {
+            "group": "Automation",
+            "pages": [
+              "modules/positioning-bot",
+              "modules/auto-messages",
+              "modules/notifications"
+            ]
+          },
+          {
+            "group": "Operations",
+            "pages": [
+              "modules/order-management",
+              "modules/centralized-chats",
+              "modules/banking-integration"
+            ]
+          },
+          {
+            "group": "Compliance",
+            "pages": [
+              "modules/kyc-client-management",
+              "modules/ai-agent"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Use Cases",
+        "groups": [
+          {
+            "group": "Use Cases",
+            "pages": [
+              "use-cases/repricing-automation",
+              "use-cases/kyc-high-volume",
+              "use-cases/multi-account-team"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "resources/glossary",
+              "resources/faq",
+              "resources/vasp-compliance"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Positioning Bot — 3-mode automated repricing every 5 seconds (conservative, aggressive, fixed price)",
+    "Centralized Chats — unified inbox for multiple Binance accounts without sharing credentials",
+    "Order Management — automatic capture and intelligent prioritization of 100% of P2P orders",
+    "AI Agent — conversational AI that handles customer messages and KYC requests 24/7",
+    "KYC & Client Management — automated identity verification via Didit or Sumsub in under 2 minutes",
+    "Automatic Messages — event-triggered messages for order creation, payment, and completion",
+    "Notifications — real-time Email and WhatsApp alerts with dynamic variables for merchants/operators",
+    "Banking Integration — automated payment verification and execution via ZEN.com, Compose, or Bre-B",
+    "Multi-account & multi-operator support with role-based access and full audit trail",
+    "7-day free trial with no credit card required"
+  ],
+  "publicApiSurface": [
+    "Binance P2P API integration (official)",
+    "Didit KYC API — document + biometric verification",
+    "Sumsub KYC API — identity verification",
+    "ZEN.com banking API — payment verification and execution",
+    "Compose banking API — payment processing",
+    "Bre-B system (Colombia) — payment integration",
+    "WhatsApp notification channel (via connected provider)",
+    "Email notification channel"
+  ]
+}

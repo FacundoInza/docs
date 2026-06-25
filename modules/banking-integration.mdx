@@ -1,0 +1,72 @@
+---
+title: "Banking Integration for Automated P2P Payment Verification"
+sidebarTitle: "Banking Integration"
+description: "Connect Silver5 AI to ZEN.com, Compose, or Bre-B to automatically verify incoming payments and execute outgoing payments for Binance P2P orders."
+---
+
+The Banking Integration module connects Silver5 AI to your bank or payment provider accounts so that payment verification and execution happen automatically — no manual confirmation, no switching between tabs, no missed payments. Your operation runs end-to-end from a single panel.
+
+## Supported providers
+
+<CardGroup cols={3}>
+  <Card title="ZEN.com" icon="building-columns">
+    Multi-currency payment verification and automated payouts. Supports 28+ currencies for global P2P operations.
+  </Card>
+  <Card title="Compose" icon="money-bill-transfer">
+    Payment processing integration for streamlined order settlement and automated confirmation flows.
+  </Card>
+  <Card title="Bre-B" icon="peso-sign">
+    Colombia's national instant payment system. Enables real-time payment verification for COP-denominated P2P orders.
+  </Card>
+</CardGroup>
+
+## What the module automates
+
+### Incoming payment verification (sell orders)
+
+When a customer marks an order as paid on Binance, Silver5 immediately checks your connected bank or provider account for the incoming transfer. If the payment is confirmed, the order status updates automatically — no operator needs to log in to your bank portal or manually check a transaction list.
+
+### Outgoing payments (buy orders)
+
+When you accept a buy order, Silver5 executes the payment to the seller's account automatically from your connected provider. The payment is triggered, logged, and tied to the order record — all without manual intervention.
+
+### Multi-currency support
+
+The ZEN.com integration supports 28+ currencies, including AED, AUD, CAD, CHF, EUR, GBP, JPY, MXN, USD, and more. Run multi-currency P2P operations from the same panel without maintaining separate workflows per currency.
+
+## Security model
+
+<Warning>
+  Silver5 AI connects to your bank or provider using **read + pay permissions scoped to P2P operations only**. Silver5 holds no custody of your funds and cannot initiate unauthorized transfers. Every banking action — verification, payment execution, status update — is logged with the operator who triggered it, the timestamp, and the associated order ID.
+</Warning>
+
+## How to connect a banking provider
+
+<Steps>
+  <Step title="Open Banking Integration settings">
+    Go to **Modules → Banking Integration** in your Silver5 dashboard.
+  </Step>
+  <Step title="Select your provider">
+    Choose **ZEN.com**, **Compose**, or **Bre-B** from the list of supported integrations.
+  </Step>
+  <Step title="Complete the authorization flow">
+    Follow the provider-specific authorization steps to grant Silver5 read and payment permissions on your account. Each provider has its own OAuth or API key flow — on-screen instructions guide you through each one.
+  </Step>
+  <Step title="Define operator roles">
+    Set which operators can trigger payments and which have view-only access. Least-privilege role assignment keeps your operation secure even across a large team.
+  </Step>
+  <Step title="Run a test order">
+    Before going live, verify the connection end-to-end with a small real order. Confirm that payment detection and execution both work as expected.
+  </Step>
+  <Step title="Activate for live operations">
+    Once the test passes, enable automation for your live P2P flow. Silver5 handles verification and payments from that point forward.
+  </Step>
+</Steps>
+
+## Audit trail
+
+Every banking action is recorded in a persistent, exportable log: who verified the payment, who executed the outgoing transfer, and the exact timestamp for each event. Use the audit log to satisfy compliance requirements, respond to disputes, or review your team's activity at any point.
+
+<Note>
+  Banking Integration is available on the **Advanced** and **Enterprise** plans. If you are on a lower tier and want to enable this module, [contact us](#) and we will get it activated on your account.
+</Note>

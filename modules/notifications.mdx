@@ -1,0 +1,103 @@
+---
+title: "Real-Time Order Notifications via Email and WhatsApp"
+sidebarTitle: "Notifications"
+description: "Get instant Email and WhatsApp alerts for every important Binance P2P or KYC event so you can manage your operation from anywhere."
+---
+
+Silver5 AI sends real-time notifications to merchants and operators via Email and WhatsApp when important events occur — new orders, payments, completed trades, and KYC verification results. Stay on top of your operation without being glued to the dashboard. Whether you're at your desk or on your phone, you'll know the moment something happens that requires your attention.
+
+<Note>
+  Notifications go to **merchants and operators only**. Your P2P counterparties do not receive these alerts — they are strictly for internal operational awareness.
+</Note>
+
+## Notification Channels
+
+<CardGroup cols={2}>
+  <Card title="Email" icon="envelope">
+    Automatic email notifications with dynamic templates for every event you choose to monitor. Each email is populated with the relevant order or verification details so you have context at a glance without opening the dashboard.
+  </Card>
+  <Card title="WhatsApp" icon="whatsapp">
+    Real-time WhatsApp alerts delivered via your connected WhatsApp provider. Get the same dynamic, event-driven notifications on your phone the moment they happen — ideal for staying responsive while away from your desk.
+  </Card>
+</CardGroup>
+
+## Available Events
+
+Silver5 AI can send notifications for the following events across your Binance P2P operation and KYC workflow:
+
+| Event | Description |
+|---|---|
+| **New Order Created** | Fired when a new buy or sell order is opened on any of your connected Binance accounts |
+| **Order Paid** | Fired when the counterparty marks the order as paid |
+| **Order Completed** | Fired when the order is released and finalized |
+| **Order Cancelled** | Fired when an order is cancelled by either party |
+| **KYC Verification Submitted** | Fired when a customer submits a KYC verification request |
+| **KYC Approved** | Fired when a KYC verification is approved |
+| **KYC Rejected** | Fired when a KYC verification is rejected |
+
+You choose which events trigger notifications and on which channels. You can enable all events on both channels, or pick only the ones that are operationally critical for your team.
+
+## Dynamic Variables
+
+Notification templates support dynamic variables that Silver5 AI fills in automatically at send time — no manual data entry required. The following variables are available:
+
+| Variable | Description |
+|---|---|
+| `{{orderId}}` | The unique Binance P2P order identifier |
+| `{{clientName}}` | The display name of the P2P counterparty |
+| `{{asset}}` | The crypto asset involved (e.g., USDT, BTC) |
+| `{{fiatAmount}}` | The fiat value of the order |
+| `{{fiatCurrency}}` | The fiat currency (e.g., ARS, BRL, CLP) |
+| `{{paymentMethod}}` | The payment method selected for the order |
+| `{{verificationStatus}}` | The current KYC status (for KYC events) |
+
+**Example WhatsApp notification template for a new order:**
+
+```
+🔔 New Order — {{orderId}}
+Client: {{clientName}}
+Amount: {{fiatAmount}} {{fiatCurrency}}
+Asset: {{asset}}
+Payment: {{paymentMethod}}
+
+Log in to review and process this order.
+```
+
+When a new order is created, Silver5 AI sends this message to your WhatsApp with all placeholders replaced by the actual order data.
+
+## Configure Notifications
+
+<Steps>
+  <Step title="Open the Notifications module">
+    In your Silver5 AI dashboard, navigate to **Modules → Notifications**.
+  </Step>
+  <Step title="Select a channel">
+    Choose **Email** or **WhatsApp** to configure. You can set up both channels independently with different templates and event selections.
+  </Step>
+  <Step title="Choose which events trigger notifications">
+    Toggle on the events you want to monitor. For example, enable **New Order Created** and **Order Paid** for WhatsApp, and all events for Email — or any combination that fits your workflow.
+  </Step>
+  <Step title="Customize your message template">
+    Write the notification message for each event using the available dynamic variables. The preview panel shows you how the message will look when it's populated with real order data.
+  </Step>
+  <Step title="Save and activate">
+    Click **Save**. Notifications are active immediately. The next matching event will trigger the first delivery.
+  </Step>
+</Steps>
+
+## Notification Limits by Plan
+
+The number of notifications included per month depends on your Silver5 AI plan:
+
+| Plan | Notifications / Month |
+|---|---|
+| **Pro** | 5,000 |
+| **Intermediate** | 5,000 |
+| **Advanced** | 12,000 |
+| **Enterprise** | Unlimited |
+
+If you expect high order volume, factor notification usage into your plan selection. Each triggered event on each channel counts as one notification.
+
+<Tip>
+  Enable **WhatsApp notifications for New Order Created** so you receive an instant alert on your phone the moment a new order comes in. This lets you respond to escalations, flag unusual orders, or simply stay aware of your operation's activity — even when you're away from the platform.
+</Tip>

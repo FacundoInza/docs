@@ -1,72 +1,101 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
+  "name": "Silver5 AI",
+  "theme": "luma",
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "https://media.brand.dev/1c9d8894-4351-4ede-bc9d-a74861c1ae19.svg",
+    "dark": "https://media.brand.dev/1c9d8894-4351-4ede-bc9d-a74861c1ae19.svg"
+  },
+  "favicon": "https://media.brand.dev/c95c9eff-9912-4c1a-91fe-8e298af8716b.jpg",
+  "colors": {
+    "primary": "#2e719f",
+    "light": "#97c9dd",
+    "dark": "#f3f8f2"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Free Trial",
+      "href": "https://www.silver5ai.com/free-trial"
     }
   },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Getting Started",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "introduction",
+              "how-it-works",
+              "free-trial"
+            ]
+          },
+          {
+            "group": "Setup",
+            "pages": [
+              "setup/connect-binance",
+              "setup/invite-operators",
+              "setup/plans-billing"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Modules",
+        "groups": [
+          {
+            "group": "Automation",
+            "pages": [
+              "modules/positioning-bot",
+              "modules/auto-messages",
+              "modules/notifications"
+            ]
+          },
+          {
+            "group": "Operations",
+            "pages": [
+              "modules/order-management",
+              "modules/centralized-chats",
+              "modules/banking-integration"
+            ]
+          },
+          {
+            "group": "Compliance",
+            "pages": [
+              "modules/kyc-client-management",
+              "modules/ai-agent"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Use Cases",
+        "groups": [
+          {
+            "group": "Use Cases",
+            "pages": [
+              "use-cases/repricing-automation",
+              "use-cases/kyc-high-volume",
+              "use-cases/multi-account-team"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "resources/glossary",
+              "resources/faq",
+              "resources/vasp-compliance"
+            ]
+          }
+        ]
+      }
     ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "linkedin": "https://www.linkedin.com/company/silver5ai"
     }
   }
 }
