@@ -37,7 +37,7 @@ The ZEN.com integration supports 28+ currencies, including AED, AUD, CAD, CHF, E
 ## Security model
 
 <Warning>
-  Silver5 AI connects to your bank or provider using **read + pay permissions scoped to P2P operations only**. Silver5 holds no custody of your funds and cannot initiate unauthorized transfers. Every banking action — verification, payment execution, status update — is logged with the operator who triggered it, the timestamp, and the associated order ID.
+  Silver5 AI connects to your bank or provider using **read and payment permissions scoped to P2P operations only — withdrawal permissions are never requested or granted**. Silver5 holds no custody of your funds and cannot transfer crypto or initiate any movement of funds outside the defined P2P payment flows. Every banking action — verification, payment execution, status update — is logged with the operator who triggered it, the timestamp, and the associated order ID.
 </Warning>
 
 ## How to connect a banking provider
