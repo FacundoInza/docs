@@ -1,72 +1,104 @@
 ---
-title: "Banking Integration for Automated P2P Payment Verification"
-sidebarTitle: "Banking Integration"
-description: "Connect Silver5 AI to ZEN.com, Compose, or Bre-B to automatically verify incoming payments and execute outgoing payments for Binance P2P orders."
+title: "Integración Bancaria para Pagos Automáticos en Binance P2P"
+sidebarTitle: "Integración Bancaria"
+description: "Conectá Silver5 AI a tus bancos y proveedores de pago para verificar y ejecutar pagos P2P automáticamente, vía API o por automatización para el resto de los bancos."
 ---
 
-The Banking Integration module connects Silver5 AI to your bank or payment provider accounts so that payment verification and execution happen automatically — no manual confirmation, no switching between tabs, no missed payments. Your operation runs end-to-end from a single panel.
+La **Integración Bancaria** es la base de los **Pagos Automáticos** de Silver5 AI: conecta tu operación con tus bancos y proveedores de pago para que la verificación y la ejecución de pagos ocurran automáticamente, sin confirmación manual, sin cambiar de pestaña y sin pagos perdidos. Tu operación corre de punta a punta desde un solo panel.
 
-## Supported providers
+## Qué automatiza
 
-<CardGroup cols={3}>
-  <Card title="ZEN.com" icon="building-columns">
-    Multi-currency payment verification and automated payouts. Supports 28+ currencies for global P2P operations.
+### Verificación de pagos entrantes (órdenes de venta)
+
+Cuando un cliente marca una orden como pagada en Binance, Silver5 revisa de inmediato tu cuenta del banco o proveedor conectado. Si el pago está confirmado, el estado de la orden se actualiza automáticamente — ningún operador necesita entrar al portal del banco ni revisar manualmente la lista de transacciones.
+
+### Pagos salientes (órdenes de compra)
+
+Cuando aceptás una orden de compra, Silver5 ejecuta el pago a la cuenta del vendedor automáticamente desde tu proveedor conectado. El pago se dispara, se registra y queda asociado a la orden — todo sin intervención manual.
+
+## Métodos de integración
+
+Silver5 soporta pagos automáticos por dos vías. Podés usar la que mejor se adapte a cada banco.
+
+<CardGroup cols={2}>
+  <Card title="Vía API" icon="plug">
+    Conexión directa por API con proveedores de pago. Es la opción más simple: no requiere instalar nada ni operar un dispositivo.
   </Card>
-  <Card title="Compose" icon="money-bill-transfer">
-    Payment processing integration for streamlined order settlement and automated confirmation flows.
-  </Card>
-  <Card title="Bre-B" icon="peso-sign">
-    Colombia's national instant payment system. Enables real-time payment verification for COP-denominated P2P orders.
+
+  <Card title="Vía automatización" icon="robot">
+    Para el resto de los bancos, Silver5 ejecuta los pagos operando el banco automáticamente — en la nube (**Browser**) o desde la app de escritorio con un teléfono (**Mobile**).
   </Card>
 </CardGroup>
 
-## What the module automates
+### Vía API
 
-### Incoming payment verification (sell orders)
+Conexión directa por API con proveedores de pago para verificación y ejecución automática.
 
-When a customer marks an order as paid on Binance, Silver5 immediately checks your connected bank or provider account for the incoming transfer. If the payment is confirmed, the order status updates automatically — no operator needs to log in to your bank portal or manually check a transaction list.
+<CardGroup cols={2}>
+  <Card title="ZEN.com" icon="building-columns">
+    Verificación de pagos y pagos automáticos multi-moneda. Soporta 28\+ monedas para operaciones P2P globales.
+  </Card>
 
-### Outgoing payments (buy orders)
+  <Card title="Compose" icon="money-bill-transfer">
+    Integración de procesamiento de pagos para liquidación de órdenes y flujos de confirmación automática.
+  </Card>
+</CardGroup>
 
-When you accept a buy order, Silver5 executes the payment to the seller's account automatically from your connected provider. The payment is triggered, logged, and tied to the order record — all without manual intervention.
+#### Soporte multi-moneda
 
-### Multi-currency support
+La integración de ZEN.com soporta 28\+ monedas, incluyendo AED, AUD, CAD, CHF, EUR, GBP, JPY, MXN, USD y más. Operá en múltiples monedas desde el mismo panel, sin mantener flujos separados por moneda.
 
-The ZEN.com integration supports 28+ currencies, including AED, AUD, CAD, CHF, EUR, GBP, JPY, MXN, USD, and more. Run multi-currency P2P operations from the same panel without maintaining separate workflows per currency.
+### Vía automatización (resto de los bancos)
 
-## Security model
+Para los bancos que no se integran por API, Silver5 ejecuta los pagos **operando el banco automáticamente**. Hay dos variantes según tu operación:
 
-<Warning>
-  Silver5 AI connects to your bank or provider using **read and payment permissions scoped to P2P operations only — withdrawal permissions are never requested or granted**. Silver5 holds no custody of your funds and cannot transfer crypto or initiate any movement of funds outside the defined P2P payment flows. Every banking action — verification, payment execution, status update — is logged with the operator who triggered it, the timestamp, and the associated order ID.
-</Warning>
+<CardGroup cols={2}>
+  <Card title="Browser" icon="globe" href="/modules/automatic-payments/browser">
+    Los pagos corren **en la nube**. No necesitás instalar nada ni usar un teléfono: configurás la integración bancaria y los pagos se procesan solos.
+  </Card>
 
-## How to connect a banking provider
+  <Card title="Mobile" icon="mobile-screen-button" href="/modules/automatic-payments/mobile">
+    La app de escritorio de Silver5 opera la app del banco en un **teléfono Android** (real por USB o el emulador BlueStacks). Ideal para bancos que solo operan desde su app móvil.
+  </Card>
+</CardGroup>
+
+## Cómo conectar un proveedor por API
 
 <Steps>
-  <Step title="Open Banking Integration settings">
-    Go to **Modules → Banking Integration** in your Silver5 dashboard.
+  <Step title="Abrí la configuración de Integración Bancaria">
+    En tu panel de Silver5, andá a **Modules → Banking Integration**.
   </Step>
-  <Step title="Select your provider">
-    Choose **ZEN.com**, **Compose**, or **Bre-B** from the list of supported integrations.
+  <Step title="Elegí tu proveedor">
+    Seleccioná **ZEN.com** o **Compose** de la lista de integraciones soportadas.
   </Step>
-  <Step title="Complete the authorization flow">
-    Follow the provider-specific authorization steps to grant Silver5 read and payment permissions on your account. Each provider has its own OAuth or API key flow — on-screen instructions guide you through each one.
+  <Step title="Completá el flujo de autorización">
+    Seguí los pasos de autorización propios del proveedor para otorgarle a Silver5 permisos de lectura y de pago sobre tu cuenta. Cada proveedor tiene su propio flujo (OAuth o API key); las instrucciones en pantalla te guían en cada uno.
   </Step>
-  <Step title="Define operator roles">
-    Set which operators can trigger payments and which have view-only access. Least-privilege role assignment keeps your operation secure even across a large team.
+  <Step title="Definí los roles de operador">
+    Establecé qué operadores pueden disparar pagos y cuáles tienen acceso de solo lectura. La asignación de menor privilegio mantiene tu operación segura incluso con equipos grandes.
   </Step>
-  <Step title="Run a test order">
-    Before going live, verify the connection end-to-end with a small real order. Confirm that payment detection and execution both work as expected.
+  <Step title="Probá con una orden real chica">
+    Antes de operar en vivo, verificá la conexión de punta a punta con una orden real de monto bajo. Confirmá que la detección y la ejecución del pago funcionan.
   </Step>
-  <Step title="Activate for live operations">
-    Once the test passes, enable automation for your live P2P flow. Silver5 handles verification and payments from that point forward.
+  <Step title="Activá para operación en vivo">
+    Una vez que la prueba pasa, habilitá la automatización para tu flujo P2P real. Desde ese momento, Silver5 se encarga de la verificación y los pagos.
   </Step>
 </Steps>
 
-## Audit trail
+<Note>
+  ¿El banco que querés usar no está en la lista de API? Configurá los pagos automáticos por [Browser](/modules/automatic-payments/browser) o [Mobile](/modules/automatic-payments/mobile).
+</Note>
 
-Every banking action is recorded in a persistent, exportable log: who verified the payment, who executed the outgoing transfer, and the exact timestamp for each event. Use the audit log to satisfy compliance requirements, respond to disputes, or review your team's activity at any point.
+## Modelo de seguridad
+
+<Warning>
+  Silver5 AI se conecta a tu banco o proveedor con **permisos de lectura y de pago acotados únicamente a operaciones P2P — nunca se solicitan ni se otorgan permisos de retiro**. Silver5 no tiene custodia de tus fondos y no puede transferir cripto ni iniciar ningún movimiento de fondos fuera de los flujos de pago P2P definidos. Cada acción bancaria —verificación, ejecución de pago, actualización de estado— queda registrada con el operador que la disparó, la marca de tiempo y el ID de la orden asociada.
+</Warning>
+
+## Registro de auditoría
+
+Cada acción bancaria queda registrada en un log persistente y exportable: quién verificó el pago, quién ejecutó la transferencia saliente y la marca de tiempo exacta de cada evento. Usá el registro de auditoría para cumplir requisitos de compliance, responder disputas o revisar la actividad de tu equipo en cualquier momento.
 
 <Note>
-  Banking Integration is available on the **Advanced** and **Enterprise** plans. If you are on a lower tier and want to enable this module, [contact us](#) and we will get it activated on your account.
+  La Integración Bancaria está disponible en los planes **Advanced** y **Enterprise**. Si estás en un plan inferior y querés habilitar este módulo, [contactanos](#) y lo activamos en tu cuenta.
 </Note>

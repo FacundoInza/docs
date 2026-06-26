@@ -67,6 +67,14 @@
               "modules/kyc-client-management",
               "modules/ai-agent"
             ]
+          },
+          {
+            "group": "Pagos Automáticos",
+            "icon": "money-check-dollar",
+            "pages": [
+              "modules/automatic-payments/browser",
+              "modules/automatic-payments/mobile"
+            ]
           }
         ]
       },
