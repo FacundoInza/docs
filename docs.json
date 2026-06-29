@@ -20,81 +20,170 @@
     }
   },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Getting Started",
-        "groups": [
+        "language": "en",
+        "default": true,
+        "tabs": [
           {
-            "group": "Overview",
-            "pages": [
-              "introduction",
-              "how-it-works",
-              "free-trial"
+            "tab": "Getting Started",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "introduction",
+                  "how-it-works",
+                  "free-trial"
+                ]
+              },
+              {
+                "group": "Setup",
+                "pages": [
+                  "setup/connect-binance",
+                  "setup/invite-operators",
+                  "setup/plans-billing"
+                ]
+              }
             ]
           },
           {
-            "group": "Setup",
-            "pages": [
-              "setup/connect-binance",
-              "setup/invite-operators",
-              "setup/plans-billing"
+            "tab": "Modules",
+            "groups": [
+              {
+                "group": "Automation",
+                "pages": [
+                  "modules/positioning-bot",
+                  "modules/auto-messages",
+                  "modules/notifications"
+                ]
+              },
+              {
+                "group": "Operations",
+                "pages": [
+                  "modules/order-management",
+                  "modules/centralized-chats",
+                  "modules/banking-integration"
+                ]
+              },
+              {
+                "group": "Compliance",
+                "pages": [
+                  "modules/kyc-client-management",
+                  "modules/ai-agent"
+                ]
+              },
+              {
+                "group": "Automatic Payments",
+                "icon": "money-check-dollar",
+                "pages": [
+                  "modules/automatic-payments/browser",
+                  "modules/automatic-payments/mobile"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Use Cases",
+            "groups": [
+              {
+                "group": "Use Cases",
+                "pages": [
+                  "use-cases/repricing-automation",
+                  "use-cases/kyc-high-volume",
+                  "use-cases/multi-account-team"
+                ]
+              },
+              {
+                "group": "Resources",
+                "pages": [
+                  "resources/glossary",
+                  "resources/faq",
+                  "resources/vasp-compliance"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Modules",
-        "groups": [
+        "language": "es",
+        "tabs": [
           {
-            "group": "Automation",
-            "pages": [
-              "modules/positioning-bot",
-              "modules/auto-messages",
-              "modules/notifications"
+            "tab": "Primeros pasos",
+            "groups": [
+              {
+                "group": "Visión general",
+                "pages": [
+                  "es/introduction",
+                  "es/how-it-works",
+                  "es/free-trial"
+                ]
+              },
+              {
+                "group": "Configuración",
+                "pages": [
+                  "es/setup/connect-binance",
+                  "es/setup/invite-operators",
+                  "es/setup/plans-billing"
+                ]
+              }
             ]
           },
           {
-            "group": "Operations",
-            "pages": [
-              "modules/order-management",
-              "modules/centralized-chats",
-              "modules/banking-integration"
+            "tab": "Módulos",
+            "groups": [
+              {
+                "group": "Automatización",
+                "pages": [
+                  "es/modules/positioning-bot",
+                  "es/modules/auto-messages",
+                  "es/modules/notifications"
+                ]
+              },
+              {
+                "group": "Operaciones",
+                "pages": [
+                  "es/modules/order-management",
+                  "es/modules/centralized-chats",
+                  "es/modules/banking-integration"
+                ]
+              },
+              {
+                "group": "Cumplimiento",
+                "pages": [
+                  "es/modules/kyc-client-management",
+                  "es/modules/ai-agent"
+                ]
+              },
+              {
+                "group": "Pagos Automáticos",
+                "icon": "money-check-dollar",
+                "pages": [
+                  "es/modules/automatic-payments/browser",
+                  "es/modules/automatic-payments/mobile"
+                ]
+              }
             ]
           },
           {
-            "group": "Compliance",
-            "pages": [
-              "modules/kyc-client-management",
-              "modules/ai-agent"
-            ]
-          },
-          {
-            "group": "Pagos Automáticos",
-            "icon": "money-check-dollar",
-            "pages": [
-              "modules/automatic-payments/browser",
-              "modules/automatic-payments/mobile"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Use Cases",
-        "groups": [
-          {
-            "group": "Use Cases",
-            "pages": [
-              "use-cases/repricing-automation",
-              "use-cases/kyc-high-volume",
-              "use-cases/multi-account-team"
-            ]
-          },
-          {
-            "group": "Resources",
-            "pages": [
-              "resources/glossary",
-              "resources/faq",
-              "resources/vasp-compliance"
+            "tab": "Casos de uso",
+            "groups": [
+              {
+                "group": "Casos de uso",
+                "pages": [
+                  "es/use-cases/repricing-automation",
+                  "es/use-cases/kyc-high-volume",
+                  "es/use-cases/multi-account-team"
+                ]
+              },
+              {
+                "group": "Recursos",
+                "pages": [
+                  "es/resources/glossary",
+                  "es/resources/faq",
+                  "es/resources/vasp-compliance"
+                ]
+              }
             ]
           }
         ]

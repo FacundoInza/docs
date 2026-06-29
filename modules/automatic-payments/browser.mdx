@@ -1,58 +1,58 @@
 ---
-title: "Pagos Automáticos por Navegador para Binance P2P"
+title: "Browser Automatic Payments for Binance P2P"
 sidebarTitle: "Browser"
-description: "Configurá los pagos automáticos de Silver5 AI desde el navegador para verificar y ejecutar pagos de tus órdenes P2P sin intervención manual."
+description: "Set up Silver5 AI's automatic payments from the browser to verify and execute payments for your P2P orders with no manual intervention."
 icon: "globe"
 ---
 
-La variante **Browser** ejecuta tus pagos automáticos **en la nube**: no necesitás instalar ninguna app ni conectar un teléfono. Configurás una vez la integración bancaria en Silver5 y, a partir de ahí, cada orden P2P se procesa de forma automática.
+The **Browser** variant runs your automatic payments **in the cloud**: you don't need to install any app or connect a phone. You configure the banking integration in Silver5 once and, from then on, every P2P order is processed automatically.
 
 <Note>
-  ¿Tu banco requiere operar desde la app móvil del banco? Usá la variante de [Pagos Automáticos en Mobile](/modules/automatic-payments/mobile), que opera la app del banco en un teléfono Android desde la app de escritorio de Silver5.
+  Does your bank require you to operate from the bank's mobile app? Use the [Mobile Automatic Payments](/modules/automatic-payments/mobile) variant, which operates the bank app on an Android phone from the Silver5 desktop app.
 </Note>
 
-## Qué automatiza
+## What it automates
 
-Cuando llega una orden P2P, Silver5 procesa el pago en la nube según la integración bancaria que configuraste, sin que tengas que cambiar de pestaña ni confirmar cada operación a mano. Tu operación corre de punta a punta desde el panel de Silver5.
+When a P2P order comes in, Silver5 processes the payment in the cloud according to the banking integration you configured, without you having to switch tabs or confirm each operation by hand. Your operation runs end to end from the Silver5 dashboard.
 
-## Cómo configurarlo
+## How to set it up
 
-<Frame caption="Video tutorial — Crear el banco y la integración bancaria">
-  <iframe width="100%" height="400" src="https://www.youtube.com/embed/j1yHWitzNdg" title="Crear el banco y la integración bancaria" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+<Frame caption="Video tutorial — Create the bank and the banking integration">
+  <iframe width="100%" height="400" src="https://www.youtube.com/embed/j1yHWitzNdg" title="Create the bank and the banking integration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 </Frame>
 
 <Steps>
-  <Step title="Creá la integración bancaria">
-    En Silver5 → **Integraciones bancarias → Nueva**.
+  <Step title="Create the banking integration">
+    In Silver5 → **Banking integrations → New**.
   </Step>
-  <Step title="Elegí el banco y el riel">
-    Seleccioná el **banco** y el **riel** de ejecución:
+  <Step title="Choose the bank and the rail">
+    Select the **bank** and the execution **rail**:
 
-    - **Pago Móvil** — teléfono \+ cédula \+ banco destino.
-    - **Interbancario** — cuenta de 20 dígitos \+ cédula \+ banco destino.
+    - **Pago Móvil** — phone \+ ID number \+ destination bank.
+    - **Interbank** — 20-digit account \+ ID number \+ destination bank.
   </Step>
-  <Step title="Asociá la integración a tus anuncios">
-    Vinculá la integración a tus **anuncios** de Binance para que las órdenes entrantes usen este flujo de pago.
+  <Step title="Link the integration to your ads">
+    Link the integration to your Binance **ads** so that incoming orders use this payment flow.
   </Step>
-  <Step title="Probá con una orden real chica">
-    Antes de operar en vivo, verificá el flujo completo con una orden real de monto bajo.
+  <Step title="Test with a small real order">
+    Before going live, verify the full flow with a low-amount real order.
   </Step>
 </Steps>
 
-{/* CONFIRMAR: detalles user-facing específicos de la variante Browser que NO están en la guía de pagos device:
-   - ¿Dónde y cómo se cargan las credenciales del banco en el flujo en la nube?
-   - ¿Hay modos dry-run / confirmación manual / detener, como en Mobile?
-   - ¿Existe un video propio del flujo Browser, o solo aplica el de alta de integración (v05)?
-   Completar estas secciones cuando tengamos la info / el video. */}
+{/* CONFIRMAR: Browser-specific user-facing details that are NOT in the device payments guide:
+   - Where and how are the bank credentials loaded in the cloud flow?
+   - Are there dry-run / manual confirmation / stop modes, like in Mobile?
+   - Is there a dedicated Browser flow video, or does only the integration onboarding one apply (v05)?
+   Complete these sections when we have the info / the video. */}
 
-## Preguntas frecuentes
+## Frequently asked questions
 
 <AccordionGroup>
-  <Accordion title="¿Necesito instalar algo o tener un teléfono?">
-    No. La variante Browser corre en la nube; no requiere la app de escritorio ni un teléfono Android. Si tu banco necesita operarse desde su app móvil, usá la variante [Mobile](/modules/automatic-payments/mobile).
+  <Accordion title="Do I need to install anything or have a phone?">
+    No. The Browser variant runs in the cloud; it requires neither the desktop app nor an Android phone. If your bank needs to be operated from its mobile app, use the [Mobile](/modules/automatic-payments/mobile) variant.
   </Accordion>
 
-  <Accordion title="¿Qué pasa si un pago no se procesa automáticamente?">
-    {/* CONFIRMAR: flujo de fallback / verificación manual en la variante Browser */}
+  <Accordion title="What happens if a payment isn't processed automatically?">
+    {/* CONFIRMAR: fallback / manual verification flow in the Browser variant */}
   </Accordion>
 </AccordionGroup>

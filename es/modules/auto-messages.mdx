@@ -1,0 +1,73 @@
+---
+title: "Mensajes Automáticos para Cada Evento de Orden de Binance P2P"
+sidebarTitle: "Mensajes Automáticos"
+description: "Configurá Silver5 AI para enviar el mensaje correcto automáticamente en cada evento de orden P2P — nueva orden, pago recibido y orden completada."
+---
+
+Los Mensajes Automáticos te permiten configurar mensajes con plantillas que Silver5 AI envía a los clientes al instante cuando ocurren eventos clave durante una orden P2P. Sin tipeo manual, sin demoras, sin mensajes perdidos. En cuanto Binance dispara un evento — una nueva orden, una confirmación de pago, una operación completada — Silver5 AI lo detecta y envía el mensaje correcto a tu contraparte en el chat de Binance P2P sin que muevas un dedo.
+
+## Por Qué Importa
+
+Mantener informadas a tus contrapartes P2P en cada paso de una orden es una de las formas más efectivas de reducir cancelaciones. Cuando compradores y vendedores no saben qué está pasando, se ponen ansiosos y cancelan. Los clientes de Silver5 AI que activan los Mensajes Automáticos reportan una **reducción del 40% en cancelaciones**, simplemente porque los clientes reciben confirmación inmediata en cada etapa en lugar de esperar en silencio. Una comunicación consistente y profesional también genera confianza y fomenta que vuelvan a operar.
+
+## Eventos Soportados
+
+Silver5 AI vigila tres eventos críticos en el ciclo de vida de las órdenes de Binance P2P y puede enviar un mensaje automáticamente para cada uno.
+
+| Evento | Disparador | Uso Típico |
+|---|---|---|
+| **TRADING** (Nueva Orden) | Se crea una nueva orden de compra o venta | Dar la bienvenida a la contraparte, fijar expectativas, compartir cualquier instrucción que necesiten de inmediato |
+| **PAID** | El cliente marca la orden como pagada (órdenes de venta) o vos confirmás el pago (órdenes de compra) | Confirmar que recibiste la notificación de pago, decirle qué sigue |
+| **COMPLETED** | La orden se libera y se marca como completa | Agradecer a la contraparte, confirmar que la operación está hecha, incluir cualquier instrucción de seguimiento |
+
+## Mensajes Separados para Compras y Ventas
+
+Cada evento soporta plantillas de mensaje independientes para **órdenes de COMPRA** y **órdenes de VENTA**. Esto importa porque las instrucciones que necesitás dar difieren significativamente según la dirección de la operación.
+
+Para una **orden de VENTA**, cuando se crea una nueva orden quizás quieras compartir los detalles de tu método de pago y pedirle al comprador que transfiera los fondos. Para una **orden de COMPRA** en el mismo evento, quizás quieras confirmar que estás revisando la orden y vas a liberar la cripto una vez recibido el pago. Las plantillas separadas te permiten entregar exactamente el mensaje correcto para cada escenario sin ninguna lógica condicional de tu lado.
+
+## Configurar Mensajes Automáticos
+
+<Steps>
+  <Step title="Abrí el módulo Mensajes Automáticos">
+    En tu panel de Silver5 AI, andá a **Módulos → Mensajes Automáticos**. Vas a ver los tres tipos de evento disponibles listados.
+  </Step>
+  <Step title="Seleccioná un tipo de evento">
+    Hacé clic en el evento que querés configurar — por ejemplo, **TRADING** para configurar tu mensaje de nueva orden.
+  </Step>
+  <Step title="Elegí Compra o Venta (o configurá ambas)">
+    Seleccioná si estás configurando el mensaje para órdenes de **COMPRA**, de **VENTA**, o ambas. Podés configurar cada dirección de forma independiente y volver a agregar o editar la otra en cualquier momento.
+  </Step>
+  <Step title="Escribí tu plantilla de mensaje">
+    Ingresá el texto del mensaje. Usá variables dinámicas para personalizar el mensaje automáticamente para cada orden:
+
+    - `{{orderAmount}}` — el monto de la orden
+    - `{{asset}}` — el activo cripto (por ej., USDT)
+    - `{{paymentMethod}}` — el método de pago seleccionado por la contraparte
+    - `{{fiatCurrency}}` — la moneda fiat de la orden (por ej., ARS, BRL)
+
+    **Ejemplo de mensaje VENTA / TRADING:**
+    ```
+    Hi! Thank you for your order of {{orderAmount}} {{asset}}.
+    Please send the payment via {{paymentMethod}} and mark the order as paid once done.
+    We will release your crypto as soon as we confirm receipt.
+    ```
+  </Step>
+  <Step title="Guardá la plantilla">
+    Hacé clic en **Guardar**. El mensaje queda activo de inmediato — Silver5 AI lo enviará automáticamente para todas las órdenes futuras que coincidan con el tipo de evento y la dirección de orden que configuraste.
+  </Step>
+</Steps>
+
+## Buenas Prácticas para el Contenido del Mensaje
+
+Un mensaje automático bien escrito reduce la fricción y mantiene la orden avanzando. Tené en cuenta estas pautas al escribir tus plantillas:
+
+- **Confirmá los detalles de la orden** — incluí `{{orderAmount}}` y `{{asset}}` para que la contraparte pueda verificar de inmediato que se disparó la orden correcta.
+- **Decile al cliente exactamente qué hacer a continuación** — no lo hagas adivinar. Decí "por favor enviá el pago y marcá como pagado" o "por favor esperá mientras verificamos tu pago".
+- **Incluí los detalles del método de pago para órdenes de VENTA** — si necesitás que el comprador transfiera a una cuenta específica, incluí los detalles en el mensaje TRADING para que tengan todo lo que necesitan desde el inicio.
+- **Mantenelo conciso y profesional** — una a tres oraciones suele ser suficiente. Los mensajes largos se leen por encima o se ignoran.
+- **Evitá las mayúsculas sostenidas o la puntuación excesiva** — se ve poco profesional y puede activar los filtros de spam.
+
+<Note>
+  Los mensajes automáticos se envían directamente en el **chat de Binance P2P** y **no** requieren que el módulo Agente IA esté activo. Podés usar los Mensajes Automáticos como módulo independiente incluso si no habilitaste el Agente IA.
+</Note>

@@ -1,0 +1,63 @@
+---
+title: "Automatizá el repricing P2P y la gestión de órdenes a escala"
+sidebarTitle: "Repricing y órdenes"
+description: "Mirá cómo el Bot de Posicionamiento y la Gestión de Órdenes de Silver5 AI trabajan juntos para manejar mercados ARS y BRL de alto volumen sin intervención manual."
+---
+
+Para operaciones P2P de alto volumen en ARS y BRL, refrescar los precios manualmente cada pocos minutos durante las horas pico es insostenible. Este caso de uso muestra cómo el Bot de Posicionamiento y el módulo de Gestión de Órdenes trabajan juntos para mantenerte competitivo — mientras tus operadores se enfocan en las excepciones, no en la repetición.
+
+## El desafío
+
+Durante las horas pico, la competencia cambia rápido. Un retraso de repricing manual de apenas unos minutos significa perder órdenes ante los competidores. Mientras tanto, la gestión de órdenes sin priorización significa que las órdenes importantes esperan mientras las de bajo valor se atienden primero. El resultado es un patrón predecible: siempre estás reaccionando en lugar de liderar, y tus operadores están sepultados en tareas de rutina que el software debería estar manejando por ellos.
+
+## Cómo lo resuelve Silver5 AI
+
+<Steps>
+  <Step title="Configurá el Bot de Posicionamiento con pisos y techos de precio">
+    Establecé límites mínimos y máximos de precio explícitos para tus pares ARS y BRL. El bot solo va a hacer repricing dentro de este rango, protegiendo tus márgenes automáticamente — sin guardrails manuales.
+  </Step>
+  <Step title="Elegí el modo Agresivo o Conservador">
+    Seleccioná el modo de repricing que coincida con tu estrategia de spread. El modo Agresivo te mantiene en el tope del listado incluso en mercados de movimiento rápido. El modo Conservador preserva tu margen durante las ventanas de baja competencia.
+  </Step>
+  <Step title="Habilitá la Gestión de Órdenes para capturar todas las órdenes de todas las cuentas">
+    La Gestión de Órdenes trae cada nueva orden de cada cuenta de Binance conectada automáticamente. Sin cambiar de pestaña, sin notificaciones perdidas — cada orden aparece en una vista única y unificada.
+  </Step>
+  <Step title="Configurá la priorización de órdenes">
+    Establecé tus reglas de priorización por antigüedad, valor y nivel de riesgo de la orden. Las órdenes de alto valor o sensibles al tiempo suben al tope de la cola para que tus operadores siempre sepan qué necesita atención primero.
+  </Step>
+  <Step title="Configurá alertas para las órdenes que necesitan revisión humana">
+    Definí las condiciones que disparan una alerta a un operador — métodos de pago inusuales, montos grandes, u órdenes que exceden un umbral de riesgo configurable. Todo lo demás se maneja automáticamente.
+  </Step>
+</Steps>
+
+## Resultados indicativos
+
+<CardGroup cols={2}>
+  <Card title="~60% menos tiempo de ajuste manual de precios" icon="clock">
+    Los operadores pasan mucho menos tiempo refrescando precios y más tiempo en decisiones que realmente requieren juicio humano.
+  </Card>
+  <Card title="+25% de órdenes manejadas por turno" icon="arrow-trend-up">
+    La captura y priorización automatizada de órdenes significa que tu equipo procesa más volumen sin trabajar horas más largas.
+  </Card>
+  <Card title="Operadores enfocados en las excepciones" icon="user-check">
+    La gestión de órdenes de rutina la maneja la plataforma. Tu equipo interviene solo cuando una situación genuinamente necesita revisión humana.
+  </Card>
+  <Card title="Posicionamiento consistente en el top 3 durante las horas pico" icon="trophy">
+    El Bot de Posicionamiento hace repricing cada 5 segundos, manteniendo tus avisos competitivos justo cuando la actividad del mercado — y la competencia — está en su punto más alto.
+  </Card>
+</CardGroup>
+
+<Note>
+  Los resultados varían según la estrategia de spread, la liquidez del mercado y los patrones de horas pico. Silver5 AI provee las herramientas — tu configuración determina el resultado.
+</Note>
+
+## Módulos recomendados
+
+<CardGroup cols={2}>
+  <Card title="Bot de Posicionamiento" icon="robot" href="/es/modules/positioning-bot">
+    Repricing automatizado con pisos, techos y modos Agresivo o Conservador configurables. Corre 24/7 sin intervención manual.
+  </Card>
+  <Card title="Gestión de Órdenes" icon="list-check" href="/es/modules/order-management">
+    Vista unificada de órdenes en todas las cuentas con reglas de priorización, filtros de estado y alertas para órdenes que requieren revisión humana.
+  </Card>
+</CardGroup>

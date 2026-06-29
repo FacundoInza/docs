@@ -1,0 +1,69 @@
+---
+title: "Cumplimiento KYC a escala para operaciones P2P de alto volumen"
+sidebarTitle: "KYC a escala"
+description: "Aprendé cómo Silver5 AI maneja la verificación de identidad para mesas P2P de alto volumen usando flujos automatizados de Didit, trazabilidad de auditoría completa y onboarding guiado por IA."
+---
+
+Las operaciones P2P de alto volumen enfrentan un desafío de cumplimiento: verificar la identidad manualmente para cada contraparte genera fricción, errores e inconsistencia. Este caso de uso muestra cómo Silver5 AI automatiza el proceso de KYC de punta a punta — desde la verificación inicial hasta registros listos para auditoría.
+
+## El desafío
+
+El KYC manual genera registros inconsistentes, demoras y depende del juicio de cada operador. Cuando el volumen es alto, las capturas de pantalla y las planillas no escalan — y los reguladores esperan evidencia estandarizada y auditable. Un operador haciendo seguimiento de un documento por chat mientras otro usa un checklist distinto significa que tu postura de cumplimiento es solo tan fuerte como tu miembro de equipo menos consistente.
+
+## Cómo lo resuelve Silver5 AI
+
+<Steps>
+  <Step title="Habilitá KYC y gestión de clientes y conectá tu proveedor de verificación">
+    Activá el módulo de KYC y gestión de clientes y conectá Didit (gratis) o Sumsub. Didit está disponible sin costo adicional y se integra directamente en el flujo de Silver5.
+  </Step>
+  <Step title="Habilitá el Agente IA para solicitar KYC automáticamente en las nuevas órdenes">
+    Configurá el Agente IA para disparar una solicitud de KYC apenas se crea una nueva orden. El cliente recibe un prompt de verificación en segundos — antes de que comience cualquier paso de pago.
+  </Step>
+  <Step title="Elegí tu modo de entrega de KYC">
+    Seleccioná el modo Link para redirigir al cliente a una página de verificación alojada de Didit, o el modo Manual para guiarlo en el envío de documentos directamente dentro del chat de Binance P2P.
+  </Step>
+  <Step title="El Agente IA guía al cliente en el envío de documentos">
+    El agente maneja toda la interacción de cara al cliente — explicando qué se necesita, respondiendo preguntas comunes y haciendo seguimiento si un envío está incompleto o poco claro.
+  </Step>
+  <Step title="Didit verifica la identidad y devuelve un resultado">
+    La autenticidad del documento, el matching biométrico y la detección de prueba de vida se procesan automáticamente. Los resultados se devuelven en menos de 2 minutos en la mayoría de los casos.
+  </Step>
+  <Step title="Los operadores revisan y aprueban o rechazan desde el panel de Clientes">
+    Tu equipo ve cada resultado de verificación en el panel de Clientes junto con la orden vinculada y el historial de chat. La aprobación o el rechazo es una sola acción con un registro completo adjunto.
+  </Step>
+  <Step title="Todos los registros se almacenan con timestamps y vinculados al historial de órdenes">
+    Cada verificación — exitosa o fallida — se loguea con un timestamp y se ata a la orden y al cliente específicos. Los registros están disponibles para exportar en cualquier momento.
+  </Step>
+</Steps>
+
+## Resultados indicativos
+
+<CardGroup cols={2}>
+  <Card title="~2 min de tiempo promedio de verificación" icon="stopwatch">
+    Didit devuelve resultados de documento y biométricos en menos de 2 minutos, manteniendo la experiencia del cliente rápida y reduciendo el abandono de órdenes.
+  </Card>
+  <Card title="+40% de tasa de finalización vs. el proceso manual" icon="chart-line">
+    Los flujos guiados y automatizados eliminan la fricción que hace que los clientes abandonen las solicitudes de KYC manual a mitad de proceso.
+  </Card>
+  <Card title="100% de las verificaciones vinculadas a órdenes" icon="link">
+    Cada resultado de KYC se conecta automáticamente con la orden que lo disparó — sin matching manual de registros.
+  </Card>
+  <Card title="Exportación lista para auditoría en revisiones de cumplimiento" icon="file-export">
+    Los registros completos de clientes y los historiales de verificación se pueden exportar a demanda, dándole a tu equipo de cumplimiento todo lo que necesita para revisiones internas o externas.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Usá múltiples niveles de KYC (disponibles en los planes Advanced y Enterprise) para aplicar distintos requisitos de verificación según el tamaño de la orden o la clasificación de riesgo. Por ejemplo, las órdenes por encima de cierto umbral pueden disparar una debida diligencia reforzada automáticamente.
+</Tip>
+
+## Módulos recomendados
+
+<CardGroup cols={2}>
+  <Card title="KYC y gestión de clientes" icon="id-card" href="/es/modules/kyc-client-management">
+    Base de datos de clientes con historial de órdenes, integración con Didit y Sumsub, niveles de KYC configurables y registros exportables para revisiones de cumplimiento.
+  </Card>
+  <Card title="Agente IA" icon="microchip" href="/es/modules/ai-agent">
+    IA conversacional que guía a los clientes por los flujos de KYC, maneja las interacciones de chat de rutina y escala a los operadores cuando hace falta.
+  </Card>
+</CardGroup>
