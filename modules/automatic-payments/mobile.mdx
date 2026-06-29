@@ -156,21 +156,9 @@ In the payment section, load the bank credential **just once** (for example, the
 
 ## 5. Execute a payment
 
-When an order comes in, the app **loads and validates** the data against the order and shows a preview. You have several modes:
+When an order comes in, the app **loads and validates** the data against the order and shows a preview. Then it waits for you to confirm the payment manually.
 
 <AccordionGroup>
-  <Accordion title="Test payment (dry-run)" icon="flask">
-    Leave **Send for real** off: the app goes all the way to confirmation **without sending money**. Ideal for verifying the full flow before going live.
-
-    <Frame caption="Video tutorial — Test payment (dry-run)">
-      <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/PLACEHOLDER_V07_DRYRUN" title="Test payment (dry-run)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-    </Frame>
-  </Accordion>
-
-  <Accordion title="Automatic payment" icon="bolt">
-    With **Send for real** enabled, the app confirms the payment on its own (when the bank doesn't require a manual step).
-  </Accordion>
-
   <Accordion title="Manual confirmation" icon="hand">
     Enable **Manual confirmation** when the bank doesn't allow confirming from outside. The app prepares and validates everything, then stops right before the last step. You (or the customer) do the last step —**Confirm** and your password— **on the phone**; then you go back to the app, tap **I've confirmed**, and the app captures the receipt.
 
