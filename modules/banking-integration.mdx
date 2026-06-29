@@ -89,6 +89,40 @@ For banks that don't integrate via API, Silver5 executes payments by **operating
   Is the bank you want to use not on the API list? Set up automatic payments via [Browser](/modules/automatic-payments/browser) or [Mobile](/modules/automatic-payments/mobile).
 </Note>
 
+## Manual mode and automatic mode
+
+When you create a banking integration, it's created in **MANUAL mode** and **inactive**. In manual mode, you confirm and execute each payment yourself from the Silver5 interface: you validate the beneficiary's data and enter a **two-factor (2FA)** code before sending. Once you've verified that everything works, the next step is to switch it to **automatic mode**.
+
+<Frame caption="The integration is created in MANUAL mode and inactive">
+  <img src="/images/automatic-payments/integration-manual-summary.png" alt="Summary of the banking integration creation in MANUAL mode" />
+</Frame>
+
+### Confirm a payment in manual mode
+
+<Steps>
+  <Step title="Open the order and tap Make Payment">
+    On the P2P order awaiting payment, tap **Make Payment**.
+
+    <Frame caption="Order awaiting payment, with the Make Payment button">
+      <img src="/images/automatic-payments/order-realizar-pago.png" alt="Order detail with the Make Payment button" />
+    </Frame>
+  </Step>
+  <Step title="Verify the beneficiary's data">
+    Check that the beneficiary's name, bank, phone, and ID number match the order.
+  </Step>
+  <Step title="Enter the 2FA code and execute">
+    Enter the 6-digit **verification code (2FA)** from your authenticator app and tap **Execute payment**.
+
+    <Frame caption="Payment confirmation with two-factor (2FA) code">
+      <img src="/images/automatic-payments/confirm-payment-2fa.png" alt="Payment confirmation modal with 2FA code" />
+    </Frame>
+  </Step>
+</Steps>
+
+### Switch to automatic mode
+
+Once you've validated the flow in manual mode, the next step is to enable **automatic mode**: Silver5 executes the payments for you, without confirming them one by one. To enable it, contact support.
+
 ## Security model
 
 <Warning>
