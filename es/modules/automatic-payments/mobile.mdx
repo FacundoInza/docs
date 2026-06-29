@@ -1,0 +1,204 @@
+---
+title: "Pagos Automáticos en Mobile para Binance P2P"
+sidebarTitle: "Mobile"
+description: "Configurá los pagos automáticos de Silver5 AI desde la app mobile para verificar y ejecutar pagos de tus órdenes P2P desde cualquier lugar."
+icon: "mobile-screen-button"
+---
+
+La variante **Mobile** automatiza tus pagos de órdenes P2P con la **app de escritorio de Silver5**, que opera la app del banco en un **teléfono Android** (real por USB o el emulador **BlueStacks**). Silver5 te manda las órdenes y la app las ejecuta una por una.
+
+<Note>
+  ¿Preferís que los pagos corran en la nube, sin instalar nada ni usar un teléfono? Mirá la variante de [Pagos Automáticos por Navegador](/es/modules/automatic-payments/browser).
+</Note>
+
+## Cómo funciona
+
+<Frame caption="Video tutorial — Cómo funciona en 2 minutos">
+  <iframe width="100%" height="400" src="https://www.youtube.com/embed/PLACEHOLDER_V00_OVERVIEW" title="Pagos Automáticos Mobile — Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+</Frame>
+
+Silver5 te manda las órdenes y la app las paga sola, operando la app del banco en tu teléfono. Para arrancar hacés tres cosas: **generás un token**, **conectás la app de escritorio** y **conectás el teléfono**. Después, cada orden se paga sola — y siempre podés detenerla o confirmar el último paso a mano.
+
+## Qué necesitás
+
+- La **app de escritorio** de Silver5 instalada (Mac o Windows).
+- Un **teléfono Android** (real por USB o el emulador **BlueStacks**) con la app del banco instalada y la **sesión iniciada**.
+- Tu **token de conexión** de Silver5.
+
+## 1. Conectar la app con Silver5 (token)
+
+<Frame caption="Video tutorial — Generar el token y conectar la app">
+  <iframe width="100%" height="400" src="https://www.youtube.com/embed/1eJ3R7OQ6Vc" title="Generar token y conectar la app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+</Frame>
+
+<Steps>
+  <Step title="Generá el token en Silver5">
+    Entrá a Silver5 → **Ajustes → Conexión con la app de escritorio** → **Generar token**. Confirmá con tu **código 2FA**. El token se muestra **una sola vez** — copialo en ese momento.
+  </Step>
+  <Step title="Pegá el token en la app de escritorio">
+    En la app, andá a la sección **🔌 Silver5**, pegá el token y tildá **Recordar token** para no volver a cargarlo.
+  </Step>
+  <Step title="Conectá">
+    Tocá **Conectar con Silver5**. Arriba debe quedar **🟢 Conectado con Silver5**.
+  </Step>
+</Steps>
+
+<Note>
+  La conexión es **independiente de tus cuentas bancarias**: podés generar el token y conectar antes de tener bancos cargados. Para cambiar de token, usá **🗑 Borrar token** y pegá uno nuevo. Si querés cortar el acceso, podés **revocar** el token desde Silver5.
+</Note>
+
+## 2. Conectar el dispositivo (teléfono)
+
+En la sección **📱 Dispositivo** de la app tenés dos formas de conectar el teléfono.
+
+<Tabs>
+  <Tab title="Teléfono real (USB)">
+    <Frame caption="Video tutorial — Conectar el dispositivo por USB">
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/PLACEHOLDER_V03_USB" title="Conectar el dispositivo por USB" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+    </Frame>
+
+    <Steps>
+      <Step title="Conectá el teléfono por USB">
+        Enchufá el teléfono a la computadora con el cable.
+      </Step>
+      <Step title="Activá la Depuración USB">
+        En el teléfono: **Ajustes → Opciones de desarrollador → Depuración USB**.
+      </Step>
+      <Step title="Aceptá el permiso">
+        Aceptá el cartel **"¿Permitir depuración USB?"** que aparece en el celular.
+      </Step>
+      <Step title="Reconectá el dispositivo">
+        En la app, tocá **Reconectar dispositivo**. Debe quedar **Conectado**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Emulador (BlueStacks)">
+    <Frame caption="Video tutorial — Conectar el dispositivo con BlueStacks">
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/X4ViKN83hMI" title="Conectar el dispositivo con BlueStacks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+    </Frame>
+
+    <Steps>
+      <Step title="Activá el ADB en BlueStacks">
+        Abrí BlueStacks → ⚙ **Settings → Advanced → Android Debug Bridge → ON**.
+      </Step>
+      <Step title="Reconectá el dispositivo">
+        En la app, tocá **Reconectar dispositivo**. Debe quedar **Conectado**.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+<Warning>
+  Dejá la **app del banco abierta y con la sesión iniciada** en el teléfono o el emulador. Sin la sesión activa, la app no puede operar el pago.
+</Warning>
+
+## 3. Dar de alta una integración bancaria
+
+<Frame caption="Video tutorial — Onboardear un banco / integración bancaria">
+  <iframe width="100%" height="400" src="https://www.youtube.com/embed/j1yHWitzNdg" title="Onboardear un banco / integración bancaria" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+</Frame>
+
+<Steps>
+  <Step title="Creá la integración">
+    En Silver5 → **Integraciones bancarias → Nueva**.
+  </Step>
+  <Step title="Elegí el banco y el riel">
+    Seleccioná el **banco** y el **riel** de ejecución:
+
+    - **Pago Móvil** — teléfono \+ cédula \+ banco destino.
+    - **Interbancario** — cuenta de 20 dígitos \+ cédula \+ banco destino.
+  </Step>
+  <Step title="Asociá la integración a tus anuncios">
+    Vinculá la integración a tus **anuncios** de Binance.
+  </Step>
+</Steps>
+
+<Note>
+  No hace falta tener la integración para conectar la app: podés cargarla después y se sincroniza sola.
+</Note>
+
+## 4. Cargar la credencial del banco
+
+<Frame caption="Video tutorial — Cargar la credencial del banco">
+  <iframe width="100%" height="400" src="https://www.youtube.com/embed/kQ_VbVdqUac" title="Cargar la credencial del banco" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+</Frame>
+
+En la sección de pago, cargá **una sola vez** la credencial del banco (por ejemplo, el PIN de Lemon, la clave de BanescOnline o el usuario/contraseña de Bancamiga, según el banco) y tildá **Recordar (llavero)**.
+
+<Warning>
+  🔒 La credencial se guarda **cifrada en el llavero de tu computadora** (Keychain en Mac, Credential Locker en Windows). **Nunca** viaja a Silver5 ni se guarda en texto plano. Vos tenés la custodia.
+</Warning>
+
+## 5. Ejecutar un pago
+
+Cuando llega una orden, la app **carga y valida** los datos contra la orden y muestra una previsualización. Tenés varios modos:
+
+<AccordionGroup>
+  <Accordion title="Pago de prueba (dry-run)" icon="flask">
+    Dejá **Enviar de verdad** apagado: la app llega hasta la confirmación **sin enviar plata**. Ideal para verificar el flujo completo antes de operar en vivo.
+
+    <Frame caption="Video tutorial — Pago de prueba (dry-run)">
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/PLACEHOLDER_V07_DRYRUN" title="Pago de prueba (dry-run)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Pago automático" icon="bolt">
+    Con **Enviar de verdad** activado, la app confirma el pago sola (cuando el banco no requiere un paso manual).
+  </Accordion>
+
+  <Accordion title="Confirmación manual" icon="hand">
+    Activá **Confirmación manual** cuando el banco no permite confirmar desde afuera. La app prepara y valida todo, y se frena justo antes del último paso. Vos (o el cliente) hacés el último paso —**Confirmar** y tu clave— **en el teléfono**; después volvés a la app, tocás **Ya confirmé** y la app captura el comprobante.
+
+    <Frame caption="Video tutorial — Confirmación manual">
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/PLACEHOLDER_V08_MANUAL" title="Confirmación manual" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Detener una automatización" icon="stop">
+    El botón **⏹ Detener** corta la automatización en cualquier momento, antes de enviar. La app frena de forma limpia entre pasos, sin dejar el pago a medias.
+
+    <Frame caption="Video tutorial — Detener una automatización">
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/PLACEHOLDER_V09_DETENER" title="Detener una automatización" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  La app **bloquea el envío** si los datos (cédula, teléfono, banco o monto) no coinciden con la orden.
+</Note>
+
+## 6. Varias órdenes seguidas
+
+Silver5 encola las órdenes y se las pasa a la app **una por una**. Los pagos a la **misma cuenta** se hacen en orden (uno termina, arranca el siguiente); cuentas distintas pueden ir en paralelo. No tenés que hacer nada: dejá la app conectada y el teléfono con la sesión abierta.
+
+## 7. Problemas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Dice 'Sin dispositivo'">
+    Revisá la conexión USB / Depuración o el ADB de BlueStacks (paso 2) y tocá **Reconectar dispositivo**.
+  </Accordion>
+
+  <Accordion title="'Silver5 desconectado' en loop">
+    No abras la app **dos veces**: tiene que correr una sola instancia. Cerrá las demás y reabrí una sola.
+  </Accordion>
+
+  <Accordion title="El banco rechaza por ubicación">
+    Usá **confirmación manual** o conectá desde una conexión del país del banco.
+  </Accordion>
+
+  <Accordion title="El pago se frenó en 'Confirmar'">
+    Revisá el teléfono: si pide un código o clave, completalo (o usá confirmación manual).
+  </Accordion>
+</AccordionGroup>
+
+## Seguridad
+
+<Warning>
+  - Las **credenciales del banco** y el **token de Silver5** viven **cifrados en tu computadora**; no salen al exterior.
+  - El **último paso del pago** siempre lo podés hacer o confirmar vos.
+  - La app **no confirma** un pago cuyos datos no coincidan con la orden.
+</Warning>
+
+<Note>
+  Los videos tutoriales están pendientes de carga. Reemplazá cada `PLACEHOLDER_...` por la URL real del video correspondiente cuando estén publicados.
+</Note>

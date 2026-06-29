@@ -1,0 +1,111 @@
+---
+title: "Glosario de trading P2P y compliance para usuarios de Silver5 AI"
+sidebarTitle: "Glosario"
+description: "Definiciones de términos clave del trading P2P en Binance y de la plataforma Silver5 AI — desde API keys y AML hasta repricing, escrow y VASPs."
+---
+
+Este glosario define los términos clave que vas a encontrar al usar Silver5 AI y operar en Binance P2P. Consultalo mientras configurás tu cuenta, leés la documentación o te comunicás con equipos de compliance. Los términos están ordenados alfabéticamente.
+
+---
+
+## A
+
+**AML (Anti-Money Laundering)**
+
+AML es el marco de controles que se usa para detectar, reportar y prevenir transacciones vinculadas a delitos financieros. De los comerciantes P2P que operan a escala se espera, por lo general, que implementen procedimientos AML — incluyendo el monitoreo de transacciones y revisiones de contrapartes basadas en riesgo. Mirá la [guía de VASP y Compliance](/es/resources/vasp-compliance) para más contexto.
+
+**AML Screening**
+
+Una verificación automática que evalúa la identidad de un cliente contra listas de sanciones, bases de personas expuestas políticamente (PEP) y fuentes de prensa adversa. Tanto Didit como Sumsub — los proveedores de KYC integrados en Silver5 AI — ofrecen AML screening como parte de sus flujos de verificación.
+
+**API Key**
+
+Una credencial programática que le permite a Silver5 AI interactuar con tu cuenta de Binance según los permisos que configures. Creás la API key en la configuración de tu cuenta de Binance y la conectás a Silver5. Silver5 AI requiere únicamente acceso de lectura y a nivel P2P — el permiso de retiro nunca es necesario ni se solicita.
+
+**API Key (sin retiro)**
+
+Una API key de Binance configurada específicamente sin el permiso de retiro habilitado. Silver5 AI usa esta configuración para que los fondos no puedan moverse fuera de tu cuenta sin tu acción directa en Binance. Esta es la configuración recomendada — y obligatoria — para todas las conexiones de Silver5.
+
+---
+
+## B
+
+**Binance P2P**
+
+El mercado peer-to-peer dentro de Binance donde los usuarios intercambian moneda fiat por cripto directamente entre sí, facilitado por el sistema de escrow de Binance. Los comerciantes publican anuncios con precios, límites y métodos de pago aceptados; las contrapartes aceptan y completan las operaciones mediante un proceso de orden con tiempo limitado.
+
+---
+
+## E
+
+**Escrow (P2P)**
+
+La custodia temporal de cripto que mantiene el exchange (Binance) mientras una operación P2P está en curso. Cuando un comprador inicia una orden, la cripto del vendedor queda bloqueada en escrow. Los fondos se liberan al comprador solo después de que el vendedor confirma la recepción del pago en fiat. El escrow protege a ambas partes ante la falta de pago o de entrega.
+
+---
+
+## K
+
+**KYC (Know Your Customer)**
+
+El proceso de verificar la identidad de un cliente antes o durante una transacción. En Binance P2P, Binance aplica sus propios requisitos de KYC a todos los usuarios. Los comerciantes también pueden aplicar un KYC adicional de contraparte como parte de sus propias políticas de compliance o gestión de riesgo. Silver5 AI automatiza este proceso mediante la integración con Didit o Sumsub.
+
+---
+
+## L
+
+**Liveness Detection**
+
+Una verificación biométrica que confirma que la persona que envía una selfie está físicamente presente — no usando una foto estática ni la repetición de un video. La liveness detection se usa en el flujo de KYC de Silver5 AI mediante Didit para reducir el riesgo de fraude de identidad durante la verificación de documentos.
+
+---
+
+## M
+
+**Merchant P2P**
+
+Un operador profesional o semiprofesional que publica anuncios P2P a escala en una plataforma como Binance. Los comerciantes suelen gestionar volumen, spreads, reputación de contrapartes y flujos de trabajo operativos a través de múltiples cuentas o pares.
+
+---
+
+## O
+
+**Order (P2P)**
+
+El compromiso con tiempo limitado que se crea cuando un usuario acepta el anuncio P2P de otro usuario. Una orden incluye una ventana de pago (el tiempo que tiene el comprador para enviar el fiat) y una ventana de liberación (el tiempo que tiene el vendedor para confirmar y liberar la cripto). Las órdenes se pueden gestionar, priorizar y filtrar en el módulo de [Gestión de Órdenes](/es/modules/order-management) de Silver5 AI.
+
+---
+
+## P
+
+**P2P (Peer-to-Peer)**
+
+Un modelo de intercambio directo entre individuos, mediado por una plataforma que mantiene el activo cripto en escrow hasta que ambas partes confirman que el pago en fiat se completó. El trading P2P permite la conversión de fiat a cripto sin usar el order book de un exchange centralizado.
+
+**POA (Proof of Address)**
+
+Un documento que prueba el domicilio de un cliente — típicamente una factura de servicios, un resumen bancario o un documento emitido por el gobierno. El POA se suele solicitar como parte de procedimientos de KYC reforzado (EDD), particularmente para contrapartes de mayor riesgo o mayor valor.
+
+---
+
+## R
+
+**Repricing**
+
+La acción de actualizar el precio de un anuncio P2P para mantenerse competitivo en el listado del mercado. En operaciones manuales, el repricing requiere atención constante y consume mucho tiempo durante las horas pico. El Bot de Posicionamiento de Silver5 AI automatiza el repricing cada 5 segundos, dentro de pisos y techos de precio configurables.
+
+---
+
+## S
+
+**Spread**
+
+La diferencia entre el precio de tu anuncio y una tasa de referencia — como el precio de un competidor, el precio medio del mercado o tu propio objetivo de costo. Tu spread determina tu margen por operación. El Bot de Posicionamiento de Silver5 AI te permite configurar precios sensibles al spread para que te mantengas competitivo sin ceder más margen del previsto.
+
+---
+
+## V
+
+**VASP (Virtual Asset Service Provider)**
+
+Una categoría regulatoria usada en muchas jurisdicciones para describir a las empresas que intermedian activos virtuales — incluyendo exchanges, mesas P2P y operaciones OTC. Los VASPs suelen estar sujetos a regulaciones de AML y KYC bajo marcos como las directrices de FATF. Mirá la [guía de VASP y Compliance](/es/resources/vasp-compliance) para ver cómo Silver5 AI soporta requisitos operativos de nivel VASP.

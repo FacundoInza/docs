@@ -1,0 +1,79 @@
+---
+title: "Conectá tu cuenta de Binance a la plataforma Silver5 AI"
+sidebarTitle: "Conectar Binance"
+description: "Vinculá una o más cuentas de Binance a Silver5 AI usando API keys. Sin permisos de retiro — tus fondos permanecen en tu cuenta del exchange."
+---
+
+Silver5 AI se conecta con Binance a través de la API oficial P2P usando API keys de solo lectura que vos generás y controlás. En ningún momento Silver5 AI solicita permisos de retiro, custodia tus fondos ni almacena tus credenciales de una forma que ponga en riesgo tus activos. Tus fondos permanecen en tu cuenta de Binance en todo momento — Silver5 AI simplemente lee tus datos P2P y gestiona órdenes en tu nombre dentro de los permisos que otorgás.
+
+<Note>
+  Vas a necesitar una cuenta de Binance con el trading P2P habilitado antes de empezar. Silver5 AI usa únicamente los permisos **Read Info** y **Enable Spot & Margin Trading** — el permiso de retiro nunca es necesario y nunca debe habilitarse para esta integración.
+</Note>
+
+## Configuración paso a paso
+
+<Steps>
+  <Step title="Abrí API Management en Binance">
+    Iniciá sesión en tu cuenta de Binance y andá al menú de tu perfil. Seleccioná **API Management** del desplegable. Si no ves esta opción, asegurate de que tu cuenta haya completado la verificación de identidad y tenga el trading P2P habilitado.
+  </Step>
+
+  <Step title="Creá una nueva API key">
+    Hacé clic en **Create API** y elegí **System-generated** cuando te lo pida. Ingresá una etiqueta clara y descriptiva para poder identificar esta key más adelante — por ejemplo, `Silver5-Production`. Completá cualquier paso de verificación de seguridad que Binance requiera (confirmación por email, 2FA, etc.).
+  </Step>
+
+  <Step title="Configurá los permisos correctos">
+    Una vez creada tu key, abrí su configuración y habilitá **únicamente** los siguientes permisos:
+
+    - ✅ **Read Info** — permite que Silver5 AI lea tus datos de cuenta y P2P
+    - ✅ **Enable Spot & Margin Trading** — requerido para las operaciones de órdenes P2P
+
+    Dejá todos los demás permisos deshabilitados. En particular:
+
+    - ❌ **No** habilites **Enable Withdrawals**
+    - ❌ **No** habilites **Enable Futures**
+    - ❌ **No** habilites **Enable Margin Loans**
+
+    Si querés restringir la key a direcciones IP específicas, podés agregar las IPs de los servidores de Silver5 AI — contactá a soporte para obtener la lista actual.
+  </Step>
+
+  <Step title="Copiá tu API Key y Secret Key">
+    Después de guardar los permisos, Binance mostrará tu **API Key** y tu **Secret Key**. Copiá ambos valores y guardalos en un lugar seguro. La Secret Key se muestra una sola vez — si la perdés, vas a tener que eliminar la key y crear una nueva.
+  </Step>
+
+  <Step title="Abrí la configuración de Silver5 AI">
+    En tu panel de Silver5 AI, andá a **Settings → Binance Accounts** y hacé clic en **Add Account**.
+  </Step>
+
+  <Step title="Pegá tus keys y guardá">
+    Ingresá un nombre amigable para esta cuenta, luego pegá tu **API Key** y tu **Secret Key** en los campos correspondientes. Hacé clic en **Save**. Silver5 AI verificará la conexión de inmediato y mostrará una confirmación si las keys son válidas y los permisos están configurados correctamente.
+  </Step>
+</Steps>
+
+## Agregar múltiples cuentas
+
+Podés conectar múltiples cuentas de Binance a Silver5 AI para manejar operaciones P2P multicuenta desde un solo panel. Esto es especialmente útil para equipos que gestionan libros de trading separados, distintas monedas o segmentos de clientes diferenciados.
+
+Para agregar otra cuenta, simplemente repetí los pasos anteriores por cada cuenta de Binance que quieras conectar. Cada cuenta aparecerá en tu lista de **Settings → Binance Accounts**, y podés asignar operadores y bots a cuentas específicas de forma independiente. La cantidad de cuentas que podés conectar depende de tu plan — mirá [Planes y facturación](/es/setup/plans-billing) para los detalles.
+
+## Buenas prácticas de seguridad
+
+<Warning>
+  **Protegé tus API keys en todo momento.**
+
+  - Nunca compartas tu API Key o Secret Key con nadie, incluido el personal de soporte de Silver5 AI.
+  - Nunca habilites permisos de retiro para una key usada con Silver5 AI — no es necesario y genera un riesgo innecesario.
+  - Si sospechás que una key fue expuesta o comprometida, revocala de inmediato en **Binance → API Management**, luego generá una nueva key y actualizala en Silver5 AI.
+  - Evitá almacenar API keys en archivos de texto plano, mensajes de chat o emails.
+</Warning>
+
+## Solución de problemas
+
+<AccordionGroup>
+  <Accordion title="La API key no funciona después de agregarla">
+    Verificá dos veces que hayas habilitado tanto **Read Info** como **Enable Spot & Margin Trading** en la configuración de la API key de Binance — ambos son requeridos. Si restringiste la key a direcciones IP específicas, asegurate de haber agregado las IPs correctas de los servidores de Silver5 AI (contactá a soporte si tenés dudas). Confirmá también que la key no haya sido eliminada o deshabilitada accidentalmente en Binance API Management.
+  </Accordion>
+
+  <Accordion title="Las órdenes no aparecen en el panel de Silver5 AI">
+    Asegurate de que el trading P2P esté activo en tu cuenta de Binance y de que tengas anuncios P2P activos. Las cuentas nuevas o las cuentas que nunca hayan colocado una orden P2P pueden necesitar completar primero el flujo de onboarding P2P de Binance. Si las órdenes siguen sin aparecer después de unos minutos, probá desconectar y reconectar la cuenta en **Settings → Binance Accounts**.
+  </Accordion>
+</AccordionGroup>
