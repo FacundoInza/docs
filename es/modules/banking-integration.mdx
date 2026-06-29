@@ -89,6 +89,40 @@ Para los bancos que no se integran por API, Silver5 ejecuta los pagos **operando
   ¿El banco que querés usar no está en la lista de API? Configurá los pagos automáticos por [Browser](/es/modules/automatic-payments/browser) o [Mobile](/es/modules/automatic-payments/mobile).
 </Note>
 
+## Modo manual y modo automático
+
+Cuando creás una integración bancaria, se crea en **modo MANUAL** y **inactiva**. En modo manual, cada pago lo confirmás y ejecutás vos desde la interfaz de Silver5: validás los datos del beneficiario e ingresás un código de **doble factor (2FA)** antes de enviar. Una vez que comprobaste que todo funciona, el siguiente paso es pasarla a **modo automático**.
+
+<Frame caption="La integración se crea en modo MANUAL e inactiva">
+  <img src="/images/automatic-payments/integration-manual-summary.png" alt="Resumen de la creación de la integración bancaria en modo MANUAL" />
+</Frame>
+
+### Confirmar un pago en modo manual
+
+<Steps>
+  <Step title="Abrí la orden y tocá Realizar Pago">
+    En la orden P2P que está esperando pago, tocá **Realizar Pago**.
+
+    <Frame caption="Orden a la espera de pago, con el botón Realizar Pago">
+      <img src="/images/automatic-payments/order-realizar-pago.png" alt="Detalle de la orden con el botón Realizar Pago" />
+    </Frame>
+  </Step>
+  <Step title="Verificá los datos del beneficiario">
+    Revisá que el nombre, banco, teléfono y cédula del beneficiario coincidan con la orden.
+  </Step>
+  <Step title="Ingresá el código 2FA y ejecutá">
+    Ingresá el **código de verificación (2FA)** de 6 dígitos de tu app de autenticación y tocá **Ejecutar pago**.
+
+    <Frame caption="Confirmación del pago con código de doble factor (2FA)">
+      <img src="/images/automatic-payments/confirm-payment-2fa.png" alt="Modal de confirmación de pago con código 2FA" />
+    </Frame>
+  </Step>
+</Steps>
+
+### Pasar a modo automático
+
+Cuando ya validaste el flujo en modo manual, el siguiente paso es activar el **modo automático**: Silver5 ejecuta los pagos por vos, sin confirmarlos uno por uno. Para activarlo, contactá a soporte.
+
 ## Modelo de seguridad
 
 <Warning>
