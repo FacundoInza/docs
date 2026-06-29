@@ -154,7 +154,28 @@ En la sección de pago, cargá **una sola vez** la credencial del banco (por eje
   🔒 La credencial se guarda **cifrada en el llavero de tu computadora** (Keychain en Mac, Credential Locker en Windows). **Nunca** viaja a Silver5 ni se guarda en texto plano. Vos tenés la custodia.
 </Warning>
 
-## 5. Ejecutar un pago
+## 5. Configurar el segundo factor (2FA)
+
+Para los bancos que piden un segundo factor (2FA) con un código de 6 dígitos (TOTP), la app puede generar ese código sola. Para configurarlo, importás el 2FA exportando el código QR desde Google Authenticator.
+
+<Frame caption="Video tutorial — Exportar el QR desde Google Authenticator">
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/PLACEHOLDER_V11_TOTP" title="Exportar el QR desde Google Authenticator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+</Frame>
+
+<Steps>
+  <Step title="Exportá el 2FA desde Google Authenticator">
+    Abrí Google Authenticator → menú → **Transferir cuentas → Exportar cuentas**. Seleccioná la cuenta del banco y generá el **código QR**.
+  </Step>
+  <Step title="Cargá el QR en la app de Silver5">
+    En la sección de pago, agregá el 2FA con el **QR exportado**. {/* CONFIRMAR: ubicación/control exacto en la app */}
+  </Step>
+</Steps>
+
+<Warning>
+  🔒 El secreto del 2FA se guarda **cifrado en tu computadora**, igual que la credencial del banco. **Nunca** viaja a Silver5.
+</Warning>
+
+## 6. Ejecutar un pago
 
 Cuando llega una orden, la app **carga y valida** los datos contra la orden y muestra una previsualización. Después espera a que confirmes el pago de forma manual.
 
@@ -177,11 +198,11 @@ Cuando llega una orden, la app **carga y valida** los datos contra la orden y mu
   La app **bloquea el envío** si los datos (cédula, teléfono, banco o monto) no coinciden con la orden.
 </Note>
 
-## 6. Varias órdenes seguidas
+## 7. Varias órdenes seguidas
 
 Silver5 encola las órdenes y se las pasa a la app **una por una**. Los pagos a la **misma cuenta** se hacen en orden (uno termina, arranca el siguiente); cuentas distintas pueden ir en paralelo. No tenés que hacer nada: dejá la app conectada y el teléfono con la sesión abierta.
 
-## 7. Problemas frecuentes
+## 8. Problemas frecuentes
 
 <AccordionGroup>
   <Accordion title="Dice 'Sin dispositivo'">
