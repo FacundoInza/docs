@@ -52,7 +52,7 @@ Installers for the Silver5 desktop app and the BlueStacks emulator:
 ## 1. Connect the app to Silver5 (token)
 
 <Frame caption="Video tutorial — Generate the token and connect the app">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/1eJ3R7OQ6Vc" title="Generate token and connect the app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/HupN_BRdkmc" title="Generate token and connect the app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 </Frame>
 
 <Steps>
@@ -119,10 +119,43 @@ In the app's **📱 Device** section you have two ways to connect the phone.
   Keep the **bank app open and logged in** on the phone or the emulator. Without an active session, the app can't carry out the payment.
 </Warning>
 
-## 3. Set up a banking integration
+## 3. Load the bank credential
+
+<Frame caption="Video tutorial — Load the bank credential">
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/kQ_VbVdqUac" title="Load the bank credential" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+</Frame>
+
+In the payment section, load the bank credential **just once** (for example, the Lemon PIN, the BanescOnline password, or the Bancamiga username/password, depending on the bank) and check **Remember (keychain)**.
+
+<Warning>
+  🔒 The credential is stored **encrypted in your computer's keychain** (Keychain on Mac, Credential Locker on Windows). It **never** travels to Silver5 nor is it stored in plain text. You hold custody.
+</Warning>
+
+## 4. Set up two-factor authentication (2FA)
+
+For banks that require a second factor (2FA) with a 6-digit code (TOTP), the app can generate that code on its own. To set it up, import the 2FA by exporting the QR code from Google Authenticator.
+
+<Frame caption="Video tutorial — Export the QR from Google Authenticator">
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/Vp1w1YXWWGY" title="Export the QR from Google Authenticator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+</Frame>
+
+<Steps>
+  <Step title="Export the 2FA from Google Authenticator">
+    Open Google Authenticator → menu → **Transfer accounts → Export accounts**. Select the bank account and generate the **QR code**.
+  </Step>
+  <Step title="Add the QR in the Silver5 app">
+    In the payment section, add the 2FA using the **exported QR code**. {/* CONFIRM: exact location/control in the app */}
+  </Step>
+</Steps>
+
+<Warning>
+  🔒 The 2FA secret is stored **encrypted on your computer**, just like the bank credential. It **never** travels to Silver5.
+</Warning>
+
+## 5. Set up a banking integration
 
 <Frame caption="Video tutorial — Onboard a bank / banking integration">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/j1yHWitzNdg" title="Onboard a bank / banking integration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/WKPAWp9JMeM" title="Onboard a bank / banking integration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 </Frame>
 
 <Steps>
@@ -143,39 +176,6 @@ In the app's **📱 Device** section you have two ways to connect the phone.
 <Note>
   You don't need to have the integration set up to connect the app: you can add it later and it syncs on its own.
 </Note>
-
-## 4. Load the bank credential
-
-<Frame caption="Video tutorial — Load the bank credential">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/kQ_VbVdqUac" title="Load the bank credential" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
-
-In the payment section, load the bank credential **just once** (for example, the Lemon PIN, the BanescOnline password, or the Bancamiga username/password, depending on the bank) and check **Remember (keychain)**.
-
-<Warning>
-  🔒 The credential is stored **encrypted in your computer's keychain** (Keychain on Mac, Credential Locker on Windows). It **never** travels to Silver5 nor is it stored in plain text. You hold custody.
-</Warning>
-
-## 5. Set up two-factor authentication (2FA)
-
-For banks that require a second factor (2FA) with a 6-digit code (TOTP), the app can generate that code on its own. To set it up, import the 2FA by exporting the QR code from Google Authenticator.
-
-<Frame caption="Video tutorial — Export the QR from Google Authenticator">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/Vp1w1YXWWGY" title="Export the QR from Google Authenticator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
-
-<Steps>
-  <Step title="Export the 2FA from Google Authenticator">
-    Open Google Authenticator → menu → **Transfer accounts → Export accounts**. Select the bank account and generate the **QR code**.
-  </Step>
-  <Step title="Add the QR in the Silver5 app">
-    In the payment section, add the 2FA using the **exported QR code**. {/* CONFIRM: exact location/control in the app */}
-  </Step>
-</Steps>
-
-<Warning>
-  🔒 The 2FA secret is stored **encrypted on your computer**, just like the bank credential. It **never** travels to Silver5.
-</Warning>
 
 ## 6. Execute a payment
 
