@@ -52,7 +52,7 @@ Instaladores de la app de escritorio de Silver5 y del emulador BlueStacks:
 ## 1. Conectar la app con Silver5 (token)
 
 <Frame caption="Video tutorial — Generar el token y conectar la app">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/1eJ3R7OQ6Vc" title="Generar token y conectar la app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/HupN_BRdkmc" title="Generar token y conectar la app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 </Frame>
 
 <Steps>
@@ -119,10 +119,43 @@ En la sección **📱 Dispositivo** de la app tenés dos formas de conectar el t
   Dejá la **app del banco abierta y con la sesión iniciada** en el teléfono o el emulador. Sin la sesión activa, la app no puede operar el pago.
 </Warning>
 
-## 3. Dar de alta una integración bancaria
+## 3. Cargar la credencial del banco
+
+<Frame caption="Video tutorial — Cargar la credencial del banco">
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/kQ_VbVdqUac" title="Cargar la credencial del banco" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+</Frame>
+
+En la sección de pago, cargá **una sola vez** la credencial del banco (por ejemplo, el PIN de Lemon, la clave de BanescOnline o el usuario/contraseña de Bancamiga, según el banco) y tildá **Recordar (llavero)**.
+
+<Warning>
+  🔒 La credencial se guarda **cifrada en el llavero de tu computadora** (Keychain en Mac, Credential Locker en Windows). **Nunca** viaja a Silver5 ni se guarda en texto plano. Vos tenés la custodia.
+</Warning>
+
+## 4. Configurar el segundo factor (2FA)
+
+Para los bancos que piden un segundo factor (2FA) con un código de 6 dígitos (TOTP), la app puede generar ese código sola. Para configurarlo, importás el 2FA exportando el código QR desde Google Authenticator.
+
+<Frame caption="Video tutorial — Exportar el QR desde Google Authenticator">
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/Vp1w1YXWWGY" title="Exportar el QR desde Google Authenticator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+</Frame>
+
+<Steps>
+  <Step title="Exportá el 2FA desde Google Authenticator">
+    Abrí Google Authenticator → menú → **Transferir cuentas → Exportar cuentas**. Seleccioná la cuenta del banco y generá el **código QR**.
+  </Step>
+  <Step title="Cargá el QR en la app de Silver5">
+    En la sección de pago, agregá el 2FA con el **QR exportado**. {/* CONFIRMAR: ubicación/control exacto en la app */}
+  </Step>
+</Steps>
+
+<Warning>
+  🔒 El secreto del 2FA se guarda **cifrado en tu computadora**, igual que la credencial del banco. **Nunca** viaja a Silver5.
+</Warning>
+
+## 5. Dar de alta una integración bancaria
 
 <Frame caption="Video tutorial — Onboardear un banco / integración bancaria">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/j1yHWitzNdg" title="Onboardear un banco / integración bancaria" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/WKPAWp9JMeM" title="Onboardear un banco / integración bancaria" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 </Frame>
 
 <Steps>
@@ -143,39 +176,6 @@ En la sección **📱 Dispositivo** de la app tenés dos formas de conectar el t
 <Note>
   No hace falta tener la integración para conectar la app: podés cargarla después y se sincroniza sola.
 </Note>
-
-## 4. Cargar la credencial del banco
-
-<Frame caption="Video tutorial — Cargar la credencial del banco">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/kQ_VbVdqUac" title="Cargar la credencial del banco" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
-
-En la sección de pago, cargá **una sola vez** la credencial del banco (por ejemplo, el PIN de Lemon, la clave de BanescOnline o el usuario/contraseña de Bancamiga, según el banco) y tildá **Recordar (llavero)**.
-
-<Warning>
-  🔒 La credencial se guarda **cifrada en el llavero de tu computadora** (Keychain en Mac, Credential Locker en Windows). **Nunca** viaja a Silver5 ni se guarda en texto plano. Vos tenés la custodia.
-</Warning>
-
-## 5. Configurar el segundo factor (2FA)
-
-Para los bancos que piden un segundo factor (2FA) con un código de 6 dígitos (TOTP), la app puede generar ese código sola. Para configurarlo, importás el 2FA exportando el código QR desde Google Authenticator.
-
-<Frame caption="Video tutorial — Exportar el QR desde Google Authenticator">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/Vp1w1YXWWGY" title="Exportar el QR desde Google Authenticator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
-
-<Steps>
-  <Step title="Exportá el 2FA desde Google Authenticator">
-    Abrí Google Authenticator → menú → **Transferir cuentas → Exportar cuentas**. Seleccioná la cuenta del banco y generá el **código QR**.
-  </Step>
-  <Step title="Cargá el QR en la app de Silver5">
-    En la sección de pago, agregá el 2FA con el **QR exportado**. {/* CONFIRMAR: ubicación/control exacto en la app */}
-  </Step>
-</Steps>
-
-<Warning>
-  🔒 El secreto del 2FA se guarda **cifrado en tu computadora**, igual que la credencial del banco. **Nunca** viaja a Silver5.
-</Warning>
 
 ## 6. Ejecutar un pago
 
