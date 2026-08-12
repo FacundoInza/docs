@@ -1,11 +1,11 @@
 ---
 title: "Pagos Automáticos en Mobile para Binance P2P"
 sidebarTitle: "Mobile"
-description: "Configurá los pagos automáticos de Silver5 AI desde la app mobile para verificar y ejecutar pagos de tus órdenes P2P desde cualquier lugar."
+description: "Automatizá los pagos de tus órdenes P2P operando la app del banco en uno o varios teléfonos Android, con la app de escritorio de Silver5 y BlueStacks."
 icon: "mobile-screen-button"
 ---
 
-La variante **Mobile** automatiza tus pagos de órdenes P2P con la **app de escritorio de Silver5**, que opera la app del banco en un **teléfono Android** (real por USB o el emulador **BlueStacks**). Silver5 te manda las órdenes y la app las ejecuta una por una.
+La variante **Mobile** automatiza tus pagos de órdenes P2P con la **app de escritorio de Silver5**, que opera la app del banco en un **teléfono Android** (el emulador **BlueStacks** o un teléfono real por USB). Silver5 te manda las órdenes y la app las paga sola, una por una — y podés tener **varios teléfonos pagando en paralelo**.
 
 <Note>
   ¿Preferís que los pagos corran en la nube, sin instalar nada ni usar un teléfono? Mirá la variante de [Pagos Automáticos por Navegador](/es/modules/automatic-payments/browser).
@@ -13,22 +13,47 @@ La variante **Mobile** automatiza tus pagos de órdenes P2P con la **app de escr
 
 ## Cómo funciona
 
-<Frame caption="Video tutorial — Cómo funciona en 2 minutos">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/kjWUGjBK5eo" title="Pagos Automáticos Mobile — Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+<Frame caption="Video tutorial — De cero a un pago automático andando">
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/qEHnM7SmDwQ" title="Pagos Automáticos Mobile — Configuración completa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 </Frame>
 
-Silver5 te manda las órdenes y la app las paga sola, operando la app del banco en tu teléfono. Para arrancar hacés tres cosas: **generás un token**, **conectás la app de escritorio** y **conectás el teléfono**. Después, cada orden se paga sola — y siempre podés detenerla o confirmar el último paso a mano.
+Cada **cuenta bancaria** tuya vive en **un teléfono**. Cuando entra una orden, Silver5 mira de qué cuenta tiene que salir la plata y le manda el pago al teléfono que esa cuenta tiene asignado. La app de escritorio abre la app del banco en ese teléfono y ejecuta el pago paso a paso, hasta capturar el comprobante.
 
-<Frame caption="Video tutorial — Configuración completa paso a paso">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/JoXoqStdJWk" title="Cómo configurar pagos automáticos en Silver5 para Binance (paso a paso)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
+De ahí salen las tres reglas del modelo:
 
-Si preferís seguir todo de una, este video recorre la configuración completa de punta a punta. Los pasos que siguen son el mismo recorrido escrito, con su video corto en cada sección.
+<CardGroup cols={3}>
+  <Card title="La cuenta manda" icon="route">
+    En qué teléfono corre un pago lo decide la **cuenta bancaria**, no el operador. Nada de lo que toques en la app de escritorio cambia el ruteo.
+  </Card>
+
+  <Card title="Un pago por teléfono" icon="lock">
+    Cada teléfono hace **un pago a la vez**. Los pagos de una misma cuenta se hacen en fila; teléfonos distintos van en paralelo.
+  </Card>
+
+  <Card title="Un banco por teléfono" icon="mobile-screen-button">
+    Dos cuentas del **mismo banco** necesitan **dos teléfonos**: en el mismo aparato se pisan la sesión.
+  </Card>
+</CardGroup>
+
+Si el teléfono asignado a una cuenta está apagado o desconectado, ese pago **no se ejecuta en otro** — queda esperando. Es a propósito: un pago corrido en el teléfono equivocado sale de la cuenta bancaria equivocada.
+
+### El orden de la configuración
+
+```text
+BlueStacks → app del banco → app de escritorio → credenciales → conectar → cuenta bancaria + teléfono → prueba de pago → activar
+```
+
+Todo lo de la app de escritorio va primero y junto; la nube se toca una sola vez, al final.
+
+<Warning>
+  **Activar es siempre el último paso.** Desde que activás la integración empiezan a caer pagos reales, así que la prueba de pago va **antes** — nunca al revés.
+</Warning>
 
 ## Qué necesitás
 
-- La **app de escritorio** de Silver5 instalada (Mac o Windows).
-- Un **teléfono Android** (real por USB o el emulador **BlueStacks**) con la app del banco instalada y la **sesión iniciada**.
+- Una computadora con **Windows o Mac**, con la **app de escritorio de Silver5** instalada.
+- **BlueStacks** (o un teléfono Android real por USB).
+- La app de tu banco y tus credenciales de acceso.
 - Tu **token de conexión** de Silver5.
 
 ## Descargas
@@ -55,127 +80,128 @@ Instaladores de la app de escritorio de Silver5 y del emulador BlueStacks:
   </Card>
 </CardGroup>
 
-## 1. Conectar la app con Silver5 (token)
-
-<Frame caption="Video tutorial — Generar el token y conectar la app">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/1eJ3R7OQ6Vc" title="Generar token y conectar la app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
+## Configuración paso a paso
 
 <Steps>
-  <Step title="Generá el token en Silver5">
-    Entrá a Silver5 → **Ajustes → Conexión con la app de escritorio** → **Generar token**. Confirmá con tu **código 2FA**. El token se muestra **una sola vez** — copialo en ese momento.
+  <Step title="Creá la instancia en BlueStacks">
+    Abrí BlueStacks y creá una instancia. Esa instancia va a ser **tu teléfono**.
+
+    Activá el puente de depuración una sola vez: ⚙ **Settings → Advanced → Android Debug Bridge → ON**. Sin eso, la app de escritorio no puede ver el teléfono.
   </Step>
-  <Step title="Pegá el token en la app de escritorio">
-    En la app, andá a la sección **🔌 Silver5**, pegá el token y tildá **Recordar token** para no volver a cargarlo.
+  <Step title="Instalá la app del banco y entrá una vez">
+    Dentro de la instancia, abrí **Play Store** e instalá la app de tu banco. Entrá **una vez a mano** y dejá la sesión iniciada.
+
+    <Warning>
+      Dejá la app del banco **con la sesión iniciada**. Si la sesión se cierra, el pago no sale.
+    </Warning>
   </Step>
-  <Step title="Conectá">
-    Tocá **Conectar con Silver5**. Arriba debe quedar **🟢 Conectado con Silver5**.
+  <Step title="Instalá la app de escritorio de Silver5">
+    En Silver5 → **Ajustes → Conexión con la app de escritorio → Descargar**. Instalala y abrila.
+  </Step>
+  <Step title="Verificá que el teléfono aparezca solo">
+    En la sección **📱 Dispositivos** de la app, tu teléfono aparece solo. No hay que cargar nada a mano.
+  </Step>
+  <Step title="Cargá las credenciales del banco">
+    En la sección **Credenciales** ya te aparecen los campos del banco que instalaste, agrupados **por teléfono**. Cargá usuario y clave y guardá.
+
+    <Warning>
+      🔒 Las credenciales se guardan **cifradas en el llavero de tu computadora** (Keychain en Mac, Credential Locker en Windows). **Nunca** viajan a Silver5 ni se guardan en texto plano. Vos tenés la custodia.
+    </Warning>
+  </Step>
+  <Step title="Conectá la app con Silver5 (token)">
+    En Silver5 → **Ajustes → Conexión con la app de escritorio → Generar token**. Confirmá con tu **código 2FA**. El token se muestra **una sola vez** — copialo en ese momento.
+
+    En la app de escritorio, pegá el token y tocá **Conectar con Silver5**. Arriba debe quedar **🟢 Conectado con Silver5**.
+  </Step>
+  <Step title="Creá la cuenta bancaria y asignale el teléfono">
+    En Silver5 → **Cuentas bancarias → Nueva**. Elegí el **banco**, el canal **Móvil** y **asigná el operador** que tiene la app de escritorio abierta.
+
+    En la card **Dispositivo**, tocá **Buscar** y elegí el teléfono. Ahí es donde va a salir la plata de esta cuenta.
+  </Step>
+  <Step title="Hacé una prueba de pago">
+    Antes de activar nada, probá un pago: elegí la cuenta, un **monto chico** y un **destino propio**.
+
+    Mirá el emulador mientras corre — eso es exactamente lo que va a hacer con cada orden.
+  </Step>
+  <Step title="Creá la integración y poné los límites">
+    Si el pago de prueba salió, andá a la cuenta bancaria y **creá la integración**. Elegí para qué **método de pago** es y definí los **límites**.
+  </Step>
+  <Step title="Activá">
+    Activá la integración. Desde ese momento las órdenes se pagan solas, dentro de los límites que pusiste.
   </Step>
 </Steps>
 
-<Note>
-  La conexión es **independiente de tus cuentas bancarias**: podés generar el token y conectar antes de tener bancos cargados. Para cambiar de token, usá **🗑 Borrar token** y pegá uno nuevo. Si querés cortar el acceso, podés **revocar** el token desde Silver5.
-</Note>
+<Tip>
+  Dejá la app de escritorio abierta y el teléfono prendido. Nada más.
+</Tip>
 
-## 2. Conectar el dispositivo (teléfono)
+## Varios teléfonos a la vez
 
-En la sección **📱 Dispositivo** de la app tenés dos formas de conectar el teléfono.
-
-<Tabs>
-  <Tab title="Teléfono real (USB)">
-    <Frame caption="Video tutorial — Conectar el dispositivo por USB">
-      <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/cRp3kVudRdU" title="Conectar el dispositivo por USB" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-    </Frame>
-
-    <Steps>
-      <Step title="Conectá el teléfono por USB">
-        Enchufá el teléfono a la computadora con el cable.
-      </Step>
-      <Step title="Activá las Opciones de desarrollador">
-        En el teléfono: **Ajustes → Acerca del teléfono** y tocá **Número de compilación** 7 veces hasta que diga "Ya eres desarrollador". Así aparece el menú **Opciones de desarrollador** en Ajustes.
-      </Step>
-      <Step title="Activá la Depuración USB">
-        En el teléfono: **Ajustes → Opciones de desarrollador → Depuración USB**.
-      </Step>
-      <Step title="Aceptá el permiso">
-        Aceptá el cartel **"¿Permitir depuración USB?"** que aparece en el celular.
-      </Step>
-      <Step title="Reconectá el dispositivo">
-        En la app, tocá **Reconectar dispositivo**. Debe quedar **Conectado**.
-      </Step>
-    </Steps>
-  </Tab>
-  <Tab title="Emulador (BlueStacks)">
-    <Frame caption="Video tutorial — Conectar el dispositivo con BlueStacks">
-      <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/X4ViKN83hMI" title="Conectar el dispositivo con BlueStacks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-    </Frame>
-
-    <Steps>
-      <Step title="Activá el ADB en BlueStacks">
-        Abrí BlueStacks → ⚙ **Settings → Advanced → Android Debug Bridge → ON**.
-      </Step>
-      <Step title="Reconectá el dispositivo">
-        En la app, tocá **Reconectar dispositivo**. Debe quedar **Conectado**.
-      </Step>
-    </Steps>
-  </Tab>
-</Tabs>
-
-<Warning>
-  Dejá la **app del banco abierta y con la sesión iniciada** en el teléfono o el emulador. Sin la sesión activa, la app no puede operar el pago.
-</Warning>
-
-## 3. Dar de alta una integración bancaria
-
-<Frame caption="Video tutorial — Onboardear un banco / integración bancaria">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/j1yHWitzNdg" title="Onboardear un banco / integración bancaria" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
+Podés tener **varias cuentas bancarias pagando en paralelo**, una por teléfono. Para sumar un teléfono, repetís solo la parte del emulador:
 
 <Steps>
-  <Step title="Creá la integración">
-    En Silver5 → **Integraciones bancarias → Nueva**.
+  <Step title="Creá una segunda instancia en BlueStacks">
+    Igual que la primera, con su **Android Debug Bridge → ON**.
   </Step>
-  <Step title="Elegí el banco y el riel">
-    Seleccioná el **banco** y el **riel** de ejecución:
-
-    - **Pago Móvil** — teléfono \+ cédula \+ banco destino.
-    - **Interbancario** — cuenta de 20 dígitos \+ cédula \+ banco destino.
+  <Step title="Instalá el banco de la otra cuenta y entrá una vez">
+    Dejá la sesión iniciada, como en el primero.
   </Step>
-  <Step title="Asociá la integración a tus anuncios">
-    Vinculá la integración a tus **anuncios** de Binance.
+  <Step title="Cargá las credenciales de ese teléfono">
+    En **Credenciales** ahora ves **dos grupos, uno por teléfono**: cada uno pide las del banco que tiene instalado. Cargá las del segundo y guardá.
+  </Step>
+  <Step title="Creá la segunda cuenta bancaria y asignale el segundo teléfono">
+    Mismo flujo que antes: **Cuentas bancarias → Nueva** → card **Dispositivo** → **Buscar** → el segundo teléfono.
+  </Step>
+  <Step title="Creá su integración, poné límites y activá">
+    Y listo: los dos teléfonos pagan al mismo tiempo.
   </Step>
 </Steps>
 
-<Note>
-  No hace falta tener la integración para conectar la app: podés cargarla después y se sincroniza sola.
-</Note>
-
-## 4. Cargar la credencial del banco
-
-<Frame caption="Video tutorial — Cargar la credencial del banco">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/kQ_VbVdqUac" title="Cargar la credencial del banco" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
-
-En la sección de pago, cargá **una sola vez** la credencial del banco (por ejemplo, el PIN de Lemon, la clave de BanescOnline o el usuario/contraseña de Bancamiga, según el banco) y tildá **Recordar (llavero)**.
-
 <Warning>
-  🔒 La credencial se guarda **cifrada en el llavero de tu computadora** (Keychain en Mac, Credential Locker en Windows). **Nunca** viaja a Silver5 ni se guarda en texto plano. Vos tenés la custodia.
+  **Un banco por teléfono.** Si tenés dos cuentas del mismo banco, necesitás dos teléfonos — y **las dos** tienen que tener su teléfono asignado. Si una queda sin teléfono, las dos caen al mismo carril y el pago corre sobre el aparato que haya: de qué cuenta sale la plata queda al azar.
 </Warning>
 
-## 5. Configurar el segundo factor (2FA)
+<Note>
+  Cuando tenés más de un teléfono, arriba en la app aparece un **selector** para elegir con cuál estás trabajando. Ese selector es **contexto de trabajo**: cambia lo que ves en las vistas manuales (Pagos, Prueba de pago, Nuevo banco, Credenciales) y **no cambia** en qué teléfono corre un pago automático. Eso lo decide siempre la cuenta bancaria.
+</Note>
 
-Para los bancos que piden un segundo factor (2FA) con un código de 6 dígitos (TOTP), la app puede generar ese código sola. Para configurarlo, importás el 2FA exportando el código QR desde Google Authenticator.
+<Info>
+  Cada teléfono hace **un pago a la vez**. Dos teléfonos, el doble de pagos en paralelo.
+</Info>
 
-<Frame caption="Video tutorial — Exportar el QR desde Google Authenticator">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/Vp1w1YXWWGY" title="Exportar el QR desde Google Authenticator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
+## Usar un teléfono real por USB
+
+En lugar del emulador podés conectar un teléfono Android real.
+
+<Accordion title="Pasos para conectar por USB" icon="usb">
+  <Steps>
+    <Step title="Conectá el teléfono por USB">
+      Enchufá el teléfono a la computadora con el cable.
+    </Step>
+    <Step title="Activá las Opciones de desarrollador">
+      En el teléfono: **Ajustes → Acerca del teléfono** y tocá **Número de compilación** 7 veces hasta que diga "Ya eres desarrollador".
+    </Step>
+    <Step title="Activá la Depuración USB">
+      En el teléfono: **Ajustes → Opciones de desarrollador → Depuración USB**.
+    </Step>
+    <Step title="Aceptá el permiso">
+      Aceptá el cartel **"¿Permitir depuración USB?"** que aparece en el celular.
+    </Step>
+  </Steps>
+
+  Desde ahí, el teléfono aparece en **📱 Dispositivos** y el resto de la configuración es igual.
+</Accordion>
+
+## Segundo factor (2FA) del banco
+
+Para los bancos que piden un segundo factor con un código de 6 dígitos (TOTP), la app puede generar ese código sola. Se configura importando el QR exportado desde Google Authenticator.
 
 <Steps>
   <Step title="Exportá el 2FA desde Google Authenticator">
     Abrí Google Authenticator → menú → **Transferir cuentas → Exportar cuentas**. Seleccioná la cuenta del banco y generá el **código QR**.
   </Step>
   <Step title="Cargá el QR en la app de Silver5">
-    En la sección de pago, agregá el 2FA con el **QR exportado**. {/* CONFIRMAR: ubicación/control exacto en la app */}
+    En la sección de credenciales, agregá el 2FA con el **QR exportado**.
   </Step>
 </Steps>
 
@@ -183,9 +209,9 @@ Para los bancos que piden un segundo factor (2FA) con un código de 6 dígitos (
   🔒 El secreto del 2FA se guarda **cifrado en tu computadora**, igual que la credencial del banco. **Nunca** viaja a Silver5.
 </Warning>
 
-## 6. Ejecutar un pago
+## Ejecutar un pago
 
-Cuando llega una orden, la app **carga y valida** los datos contra la orden y muestra una previsualización. Después espera a que confirmes el pago de forma manual.
+Cuando llega una orden, la app **carga y valida** los datos contra la orden, muestra una previsualización y ejecuta el pago en el teléfono de esa cuenta.
 
 <AccordionGroup>
   <Accordion title="Confirmación manual" icon="hand">
@@ -201,15 +227,27 @@ Cuando llega una orden, la app **carga y valida** los datos contra la orden y mu
   La app **bloquea el envío** si los datos (cédula, teléfono, banco o monto) no coinciden con la orden.
 </Note>
 
-## 7. Varias órdenes seguidas
+## Varias órdenes seguidas
 
-Silver5 encola las órdenes y se las pasa a la app **una por una**. Los pagos a la **misma cuenta** se hacen en orden (uno termina, arranca el siguiente); cuentas distintas pueden ir en paralelo. No tenés que hacer nada: dejá la app conectada y el teléfono con la sesión abierta.
+Silver5 encola las órdenes y las despacha **por teléfono**: cada aparato ejecuta una por vez, en el orden en que entraron, y los teléfonos distintos avanzan en paralelo. No tenés que hacer nada: dejá la app conectada y los teléfonos con la sesión abierta.
 
-## 8. Problemas frecuentes
+## Problemas frecuentes
 
 <AccordionGroup>
-  <Accordion title="Dice 'Sin dispositivo'">
-    Revisá la conexión USB / Depuración o el ADB de BlueStacks (paso 2) y tocá **Reconectar dispositivo**.
+  <Accordion title="El teléfono no aparece en Dispositivos">
+    Revisá que el **Android Debug Bridge** esté en ON en BlueStacks (⚙ Settings → Advanced), o la Depuración USB si es un teléfono real. Después reabrí la app de escritorio.
+  </Accordion>
+
+  <Accordion title="Un pago quedó esperando y dice que el dispositivo está desconectado">
+    El teléfono asignado a esa cuenta no está online. Los pagos **no se ejecutan en otro teléfono**: prendé ese aparato y el pago sigue solo. Es la protección que evita que la plata salga de la cuenta equivocada.
+  </Accordion>
+
+  <Accordion title="Tengo dos cuentas del mismo banco y una no paga">
+    Las dos cuentas necesitan **su propio teléfono asignado**, cada uno con la app del banco instalada y sus propias credenciales cargadas. Revisá que ninguna de las dos haya quedado sin dispositivo.
+  </Accordion>
+
+  <Accordion title="Cambié el selector de teléfono y el pago corrió en el otro">
+    Es el comportamiento esperado. El selector solo cambia lo que ves en las vistas manuales; el ruteo de los pagos automáticos lo decide la cuenta bancaria.
   </Accordion>
 
   <Accordion title="'Silver5 desconectado' en loop">
@@ -228,11 +266,9 @@ Silver5 encola las órdenes y se las pasa a la app **una por una**. Los pagos a 
 ## Seguridad
 
 <Warning>
-  - Las **credenciales del banco** y el **token de Silver5** viven **cifrados en tu computadora**; no salen al exterior.
+  - Las **credenciales del banco** y el **token de Silver5** viven **cifrados en tu computadora**; no salen al exterior. Silver5 nunca recibe tu usuario ni tu clave del banco.
+  - Las credenciales se guardan **por teléfono**: cada aparato usa las suyas.
+  - Un pago **solo** corre en el teléfono asignado a esa cuenta bancaria. Ante la duda, no se paga.
   - El **último paso del pago** siempre lo podés hacer o confirmar vos.
   - La app **no confirma** un pago cuyos datos no coincidan con la orden.
 </Warning>
-
-<Note>
-  Los videos tutoriales están pendientes de carga. Reemplazá cada `PLACEHOLDER_...` por la URL real del video correspondiente cuando estén publicados.
-</Note>
