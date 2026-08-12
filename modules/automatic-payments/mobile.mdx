@@ -1,11 +1,11 @@
 ---
 title: "Mobile Automatic Payments for Binance P2P"
 sidebarTitle: "Mobile"
-description: "Set up Silver5 AI's automatic payments from the mobile app to verify and execute payments for your P2P orders from anywhere."
+description: "Automate your P2P order payments by operating the bank app on one or several Android phones, using the Silver5 desktop app and BlueStacks."
 icon: "mobile-screen-button"
 ---
 
-The **Mobile** variant automates your P2P order payments with the **Silver5 desktop app**, which operates the bank app on an **Android phone** (a real one over USB or the **BlueStacks** emulator). Silver5 sends you the orders and the app executes them one by one.
+The **Mobile** variant automates your P2P order payments with the **Silver5 desktop app**, which operates the bank app on an **Android phone** (the **BlueStacks** emulator or a real phone over USB). Silver5 sends you the orders and the app pays them on its own, one by one — and you can have **several phones paying in parallel**.
 
 <Note>
   Would you rather have payments run in the cloud, with nothing to install and no phone to use? Check out the [Browser Automatic Payments](/modules/automatic-payments/browser) variant.
@@ -13,22 +13,47 @@ The **Mobile** variant automates your P2P order payments with the **Silver5 desk
 
 ## How it works
 
-<Frame caption="Video tutorial — How it works in 2 minutes">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/kjWUGjBK5eo" title="Pagos Automáticos Mobile — Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+<Frame caption="Video tutorial — From zero to a working automatic payment">
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/qEHnM7SmDwQ" title="Mobile Automatic Payments — Full setup" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 </Frame>
 
-Silver5 sends you the orders and the app pays them on its own, operating the bank app on your phone. To get started you do three things: **generate a token**, **connect the desktop app**, and **connect the phone**. After that, each order is paid automatically — and you can always stop it or confirm the last step by hand.
+Each of your **bank accounts** lives on **one phone**. When an order comes in, Silver5 looks at which account the money has to come out of and sends the payment to the phone assigned to that account. The desktop app opens the bank app on that phone and runs the payment step by step, all the way to capturing the receipt.
 
-<Frame caption="Video tutorial — Full step-by-step setup">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/JoXoqStdJWk" title="Cómo configurar pagos automáticos en Silver5 para Binance (paso a paso)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
+That's where the three rules of the model come from:
 
-If you'd rather follow it all in one go, this video walks through the full setup end to end. The steps below are that same walkthrough in writing, with a short video in each section.
+<CardGroup cols={3}>
+  <Card title="The account decides" icon="route">
+    Which phone a payment runs on is decided by the **bank account**, not by the operator. Nothing you touch in the desktop app changes the routing.
+  </Card>
+
+  <Card title="One payment per phone" icon="lock">
+    Each phone handles **one payment at a time**. Payments from the same account run in sequence; different phones run in parallel.
+  </Card>
+
+  <Card title="One bank per phone" icon="mobile-screen-button">
+    Two accounts at the **same bank** need **two phones**: on the same device they overwrite each other's session.
+  </Card>
+</CardGroup>
+
+If the phone assigned to an account is off or disconnected, that payment **does not run on a different one** — it waits. That's by design: a payment run on the wrong phone comes out of the wrong bank account.
+
+### The setup order
+
+```text
+BlueStacks → bank app → desktop app → credentials → connect → bank account + phone → test payment → activate
+```
+
+Everything involving the desktop app comes first and together; you touch the cloud only once, at the end.
+
+<Warning>
+  **Activating is always the last step.** Once you activate the integration, real payments start coming in — so the test payment goes **before** it, never the other way around.
+</Warning>
 
 ## What you need
 
-- The Silver5 **desktop app** installed (Mac or Windows).
-- An **Android phone** (a real one over USB or the **BlueStacks** emulator) with the bank app installed and **logged in**.
+- A computer running **Windows or Mac**, with the **Silver5 desktop app** installed.
+- **BlueStacks** (or a real Android phone over USB).
+- Your bank's app and your login credentials.
 - Your Silver5 **connection token**.
 
 ## Downloads
@@ -55,102 +80,128 @@ Installers for the Silver5 desktop app and the BlueStacks emulator:
   </Card>
 </CardGroup>
 
-## 1. Connect the app to Silver5 (token)
-
-<Frame caption="Video tutorial — Generate the token and connect the app">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/HupN_BRdkmc" title="Generate token and connect the app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
+## Step-by-step setup
 
 <Steps>
-  <Step title="Generate the token in Silver5">
-    Go to Silver5 → **Settings → Desktop app connection** → **Generate token**. Confirm with your **2FA code**. The token is shown **only once** — copy it right then.
+  <Step title="Create the BlueStacks instance">
+    Open BlueStacks and create an instance. That instance is going to be **your phone**.
+
+    Turn on the debug bridge once: ⚙ **Settings → Advanced → Android Debug Bridge → ON**. Without it, the desktop app can't see the phone.
   </Step>
-  <Step title="Paste the token in the desktop app">
-    In the app, go to the **🔌 Silver5** section, paste the token, and check **Remember token** so you don't have to enter it again.
+  <Step title="Install the bank app and log in once">
+    Inside the instance, open the **Play Store** and install your bank's app. Log in **once by hand** and leave the session open.
+
+    <Warning>
+      Leave the bank app **logged in**. If the session closes, the payment won't go through.
+    </Warning>
   </Step>
-  <Step title="Connect">
-    Tap **Connect to Silver5**. At the top it should read **🟢 Connected to Silver5**.
+  <Step title="Install the Silver5 desktop app">
+    In Silver5 → **Settings → Desktop app connection → Download**. Install it and open it.
+  </Step>
+  <Step title="Check that the phone shows up on its own">
+    In the app's **📱 Devices** section, your phone appears on its own. There's nothing to enter by hand.
+  </Step>
+  <Step title="Load the bank credentials">
+    In the **Credentials** section you'll already see the fields for the bank you installed, grouped **by phone**. Enter the username and password and save.
+
+    <Warning>
+      🔒 Credentials are stored **encrypted in your computer's keychain** (Keychain on Mac, Credential Locker on Windows). They **never** travel to Silver5 nor are they stored in plain text. You hold custody.
+    </Warning>
+  </Step>
+  <Step title="Connect the app to Silver5 (token)">
+    In Silver5 → **Settings → Desktop app connection → Generate token**. Confirm with your **2FA code**. The token is shown **only once** — copy it right then.
+
+    In the desktop app, paste the token and tap **Connect to Silver5**. At the top it should read **🟢 Connected to Silver5**.
+  </Step>
+  <Step title="Create the bank account and assign it the phone">
+    In Silver5 → **Bank accounts → New**. Choose the **bank**, the **Mobile** channel, and **assign the operator** who has the desktop app open.
+
+    On the **Device** card, tap **Search** and pick the phone. That's where this account's money will come out of.
+  </Step>
+  <Step title="Run a test payment">
+    Before activating anything, run a test payment: pick the account, a **small amount**, and a **destination of your own**.
+
+    Watch the emulator while it runs — that's exactly what it will do with every order.
+  </Step>
+  <Step title="Create the integration and set the limits">
+    If the test payment went through, go to the bank account and **create the integration**. Choose which **payment method** it's for and set the **limits**.
+  </Step>
+  <Step title="Activate">
+    Activate the integration. From that moment on, orders are paid automatically, within the limits you set.
   </Step>
 </Steps>
 
+<Tip>
+  Leave the desktop app open and the phone on. That's all.
+</Tip>
+
+## Several phones at once
+
+You can have **several bank accounts paying in parallel**, one per phone. To add a phone, you only repeat the emulator part:
+
+<Steps>
+  <Step title="Create a second BlueStacks instance">
+    Same as the first one, with its **Android Debug Bridge → ON**.
+  </Step>
+  <Step title="Install the other account's bank and log in once">
+    Leave the session open, just like on the first one.
+  </Step>
+  <Step title="Load that phone's credentials">
+    In **Credentials** you'll now see **two groups, one per phone**: each asks for the credentials of the bank installed on it. Enter the second one's and save.
+  </Step>
+  <Step title="Create the second bank account and assign it the second phone">
+    Same flow as before: **Bank accounts → New** → **Device** card → **Search** → the second phone.
+  </Step>
+  <Step title="Create its integration, set limits, and activate">
+    And that's it: both phones pay at the same time.
+  </Step>
+</Steps>
+
+<Warning>
+  **One bank per phone.** If you have two accounts at the same bank, you need two phones — and **both** must have their phone assigned. If one is left without a phone, both fall into the same lane and the payment runs on whichever device is available: which account the money comes out of becomes a coin flip.
+</Warning>
+
 <Note>
-  The connection is **independent of your bank accounts**: you can generate the token and connect before having any banks set up. To change the token, use **🗑 Delete token** and paste a new one. If you want to cut off access, you can **revoke** the token from Silver5.
+  Once you have more than one phone, a **selector** appears at the top of the app to choose which one you're working with. That selector is **working context**: it changes what you see in the manual views (Payments, Test payment, New bank, Credentials) and does **not** change which phone an automatic payment runs on. That's always decided by the bank account.
 </Note>
 
-## 2. Connect the device (phone)
+<Info>
+  Each phone handles **one payment at a time**. Two phones, twice the payments in parallel.
+</Info>
 
-In the app's **📱 Device** section you have two ways to connect the phone.
+## Using a real phone over USB
 
-<Tabs>
-  <Tab title="Real phone (USB)">
-    <Frame caption="Video tutorial — Connect the device over USB">
-      <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/cRp3kVudRdU" title="Connect the device over USB" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-    </Frame>
+Instead of the emulator you can connect a real Android phone.
 
-    <Steps>
-      <Step title="Connect the phone over USB">
-        Plug the phone into the computer with the cable.
-      </Step>
-      <Step title="Enable Developer options">
-        On the phone: **Settings → About phone** and tap **Build number** 7 times until it says "You are now a developer". The **Developer options** menu will then appear in Settings.
-      </Step>
-      <Step title="Enable USB debugging">
-        On the phone: **Settings → Developer options → USB debugging**.
-      </Step>
-      <Step title="Accept the permission">
-        Accept the **"Allow USB debugging?"** prompt that appears on the phone.
-      </Step>
-      <Step title="Reconnect the device">
-        In the app, tap **Reconnect device**. It should read **Connected**.
-      </Step>
-    </Steps>
-  </Tab>
-  <Tab title="Emulator (BlueStacks)">
-    <Frame caption="Video tutorial — Connect the device with BlueStacks">
-      <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/X4ViKN83hMI" title="Connect the device with BlueStacks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-    </Frame>
+<Accordion title="Steps to connect over USB" icon="usb">
+  <Steps>
+    <Step title="Connect the phone over USB">
+      Plug the phone into the computer with the cable.
+    </Step>
+    <Step title="Enable Developer options">
+      On the phone: **Settings → About phone** and tap **Build number** 7 times until it says "You are now a developer".
+    </Step>
+    <Step title="Enable USB debugging">
+      On the phone: **Settings → Developer options → USB debugging**.
+    </Step>
+    <Step title="Accept the permission">
+      Accept the **"Allow USB debugging?"** prompt that appears on the phone.
+    </Step>
+  </Steps>
 
-    <Steps>
-      <Step title="Enable ADB in BlueStacks">
-        Open BlueStacks → ⚙ **Settings → Advanced → Android Debug Bridge → ON**.
-      </Step>
-      <Step title="Reconnect the device">
-        In the app, tap **Reconnect device**. It should read **Connected**.
-      </Step>
-    </Steps>
-  </Tab>
-</Tabs>
+  From there the phone shows up under **📱 Devices** and the rest of the setup is the same.
+</Accordion>
 
-<Warning>
-  Keep the **bank app open and logged in** on the phone or the emulator. Without an active session, the app can't carry out the payment.
-</Warning>
+## The bank's second factor (2FA)
 
-## 3. Load the bank credential
-
-<Frame caption="Video tutorial — Load the bank credential">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/kQ_VbVdqUac" title="Load the bank credential" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
-
-In the payment section, load the bank credential **just once** (for example, the Lemon PIN, the BanescOnline password, or the Bancamiga username/password, depending on the bank) and check **Remember (keychain)**.
-
-<Warning>
-  🔒 The credential is stored **encrypted in your computer's keychain** (Keychain on Mac, Credential Locker on Windows). It **never** travels to Silver5 nor is it stored in plain text. You hold custody.
-</Warning>
-
-## 4. Set up two-factor authentication (2FA)
-
-For banks that require a second factor (2FA) with a 6-digit code (TOTP), the app can generate that code on its own. To set it up, import the 2FA by exporting the QR code from Google Authenticator.
-
-<Frame caption="Video tutorial — Export the QR from Google Authenticator">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/Vp1w1YXWWGY" title="Export the QR from Google Authenticator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
+For banks that require a second factor with a 6-digit code (TOTP), the app can generate that code on its own. You set it up by importing the QR exported from Google Authenticator.
 
 <Steps>
   <Step title="Export the 2FA from Google Authenticator">
     Open Google Authenticator → menu → **Transfer accounts → Export accounts**. Select the bank account and generate the **QR code**.
   </Step>
   <Step title="Add the QR in the Silver5 app">
-    In the payment section, add the 2FA using the **exported QR code**. {/* CONFIRM: exact location/control in the app */}
+    In the credentials section, add the 2FA using the **exported QR code**.
   </Step>
 </Steps>
 
@@ -158,34 +209,9 @@ For banks that require a second factor (2FA) with a 6-digit code (TOTP), the app
   🔒 The 2FA secret is stored **encrypted on your computer**, just like the bank credential. It **never** travels to Silver5.
 </Warning>
 
-## 5. Set up a banking integration
+## Executing a payment
 
-<Frame caption="Video tutorial — Onboard a bank / banking integration">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/WKPAWp9JMeM" title="Onboard a bank / banking integration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-</Frame>
-
-<Steps>
-  <Step title="Create the integration">
-    In Silver5 → **Banking integrations → New**.
-  </Step>
-  <Step title="Choose the bank and the rail">
-    Select the **bank** and the execution **rail**:
-
-    - **Pago Móvil** — phone \+ ID number \+ destination bank.
-    - **Interbank** — 20-digit account \+ ID number \+ destination bank.
-  </Step>
-  <Step title="Link the integration to your ads">
-    Link the integration to your Binance **ads**.
-  </Step>
-</Steps>
-
-<Note>
-  You don't need to have the integration set up to connect the app: you can add it later and it syncs on its own.
-</Note>
-
-## 6. Execute a payment
-
-When an order comes in, the app **loads and validates** the data against the order and shows a preview. Then it waits for you to confirm the payment manually.
+When an order comes in, the app **loads and validates** the data against the order, shows a preview, and runs the payment on that account's phone.
 
 <AccordionGroup>
   <Accordion title="Manual confirmation" icon="hand">
@@ -201,15 +227,27 @@ When an order comes in, the app **loads and validates** the data against the ord
   The app **blocks the send** if the data (ID number, phone, bank, or amount) doesn't match the order.
 </Note>
 
-## 7. Multiple orders in a row
+## Multiple orders in a row
 
-Silver5 queues the orders and passes them to the app **one by one**. Payments to the **same account** are made in order (one finishes, the next starts); different accounts can run in parallel. You don't have to do anything: leave the app connected and the phone logged in.
+Silver5 queues the orders and dispatches them **per phone**: each device runs one at a time, in the order they came in, and different phones move forward in parallel. You don't have to do anything: leave the app connected and the phones logged in.
 
-## 8. Common issues
+## Common issues
 
 <AccordionGroup>
-  <Accordion title="It says 'No device'">
-    Check the USB / Debugging connection or the BlueStacks ADB (step 2) and tap **Reconnect device**.
+  <Accordion title="The phone doesn't show up under Devices">
+    Check that **Android Debug Bridge** is ON in BlueStacks (⚙ Settings → Advanced), or USB debugging if it's a real phone. Then reopen the desktop app.
+  </Accordion>
+
+  <Accordion title="A payment is waiting and says the device is disconnected">
+    The phone assigned to that account isn't online. Payments **do not run on a different phone**: turn that device on and the payment continues on its own. It's the safeguard that keeps the money from coming out of the wrong account.
+  </Accordion>
+
+  <Accordion title="I have two accounts at the same bank and one doesn't pay">
+    Both accounts need **their own assigned phone**, each with the bank app installed and its own credentials loaded. Check that neither one was left without a device.
+  </Accordion>
+
+  <Accordion title="I changed the phone selector and the payment ran on the other one">
+    That's the expected behavior. The selector only changes what you see in the manual views; automatic payment routing is decided by the bank account.
   </Accordion>
 
   <Accordion title="'Silver5 disconnected' in a loop">
@@ -228,11 +266,9 @@ Silver5 queues the orders and passes them to the app **one by one**. Payments to
 ## Security
 
 <Warning>
-  - The **bank credentials** and the **Silver5 token** live **encrypted on your computer**; they don't leave it.
+  - The **bank credentials** and the **Silver5 token** live **encrypted on your computer**; they don't leave it. Silver5 never receives your bank username or password.
+  - Credentials are stored **per phone**: each device uses its own.
+  - A payment **only** runs on the phone assigned to that bank account. When in doubt, it doesn't pay.
   - The **last step of the payment** can always be done or confirmed by you.
   - The app **does not confirm** a payment whose data doesn't match the order.
 </Warning>
-
-<Note>
-  The video tutorials are pending upload. Replace each `PLACEHOLDER_...` with the real URL of the corresponding video once they're published.
-</Note>
