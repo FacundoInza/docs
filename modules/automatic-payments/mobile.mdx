@@ -17,6 +17,10 @@ The **Mobile** variant automates your P2P order payments with the **Silver5 desk
   <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/qEHnM7SmDwQ" title="Mobile Automatic Payments — Full setup" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 </Frame>
 
+<Tip>
+  That video walks the whole flow in one go. If you'd rather take it one piece at a time, each step has its own short video below, under [Step-by-step setup](#step-by-step-setup).
+</Tip>
+
 Each of your **bank accounts** lives on **one phone**. When an order comes in, Silver5 looks at which account the money has to come out of and sends the payment to the phone assigned to that account. The desktop app opens the bank app on that phone and runs the payment step by step, all the way to capturing the receipt.
 
 That's where the three rules of the model come from:
@@ -87,6 +91,10 @@ Installers for the Silver5 desktop app and the BlueStacks emulator:
     Open BlueStacks and create an instance. That instance is going to be **your phone**.
 
     Turn on the debug bridge once: ⚙ **Settings → Advanced → Android Debug Bridge → ON**. Without it, the desktop app can't see the phone.
+
+    <Frame caption="Step 1 — Installing BlueStacks (video in Spanish)">
+      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/WzX5w9hkyac" title="Step 1: Installing BlueStacks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+    </Frame>
   </Step>
   <Step title="Install the bank app and log in once">
     Inside the instance, open the **Play Store** and install your bank's app. Log in **once by hand** and leave the session open.
@@ -97,9 +105,17 @@ Installers for the Silver5 desktop app and the BlueStacks emulator:
   </Step>
   <Step title="Install the Silver5 desktop app">
     In Silver5 → **Settings → Desktop app connection → Download**. Install it and open it.
+
+    <Frame caption="Step 2 — Installing the desktop app (video in Spanish)">
+      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/ytTsvjmWzUo" title="Step 2: Installing the desktop app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+    </Frame>
   </Step>
   <Step title="Check that the phone shows up on its own">
     In the app's **📱 Devices** section, your phone appears on its own. There's nothing to enter by hand.
+
+    <Frame caption="Step 3 — Connecting the device (BlueStacks) (video in Spanish)">
+      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/0RqInPs3xJI" title="Step 3: Connecting the device (BlueStacks)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+    </Frame>
   </Step>
   <Step title="Load the bank credentials">
     In the **Credentials** section you'll already see the fields for the bank you installed, grouped **by phone**. Enter the username and password and save.
@@ -112,11 +128,19 @@ Installers for the Silver5 desktop app and the BlueStacks emulator:
     In Silver5 → **Settings → Desktop app connection → Generate token**. Confirm with your **2FA code**. The token is shown **only once** — copy it right then.
 
     In the desktop app, paste the token and tap **Connect to Silver5**. At the top it should read **🟢 Connected to Silver5**.
+
+    <Frame caption="Step 4 — Connecting the desktop app to Silver5 (video in Spanish)">
+      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/HuqH81Oc64c" title="Step 4: Connecting the desktop app to Silver5 (cloud)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+    </Frame>
   </Step>
   <Step title="Create the bank account and assign it the phone">
     In Silver5 → **Bank accounts → New**. Choose the **bank**, the **Mobile** channel, and **assign the operator** who has the desktop app open.
 
     On the **Device** card, tap **Search** and pick the phone. That's where this account's money will come out of.
+
+    <Frame caption="Step 5 — Creating the bank account (video in Spanish)">
+      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/0td0TP7Z6Dw" title="Step 5: Creating the bank account in Silver5 (cloud)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+    </Frame>
   </Step>
   <Step title="Run a test payment">
     Before activating anything, run a test payment: pick the account, a **small amount**, and a **destination of your own**.
@@ -125,6 +149,10 @@ Installers for the Silver5 desktop app and the BlueStacks emulator:
   </Step>
   <Step title="Create the integration and set the limits">
     If the test payment went through, go to the bank account and **create the integration**. Choose which **payment method** it's for and set the **limits**.
+
+    <Frame caption="Step 6 — Creating the payment agent (video in Spanish)">
+      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/aOrrXhljQJ0" title="Step 6: Creating the payment agent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+    </Frame>
   </Step>
   <Step title="Activate">
     Activate the integration. From that moment on, orders are paid automatically, within the limits you set.
