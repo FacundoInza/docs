@@ -77,7 +77,8 @@
                 "icon": "money-check-dollar",
                 "pages": [
                   "modules/automatic-payments/browser",
-                  "modules/automatic-payments/mobile"
+                  "modules/automatic-payments/mobile",
+                  "modules/automatic-payments/pc-requirements"
                 ]
               }
             ]

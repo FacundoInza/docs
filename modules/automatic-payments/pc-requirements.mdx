@@ -1,0 +1,173 @@
+---
+title: "Computer requirements and how many phones it can run"
+sidebarTitle: "PC Requirements"
+description: "How many BlueStacks instances you can run at once on your computer, how to configure each one, and how to set up Windows so they run 24/7."
+icon: "microchip"
+---
+
+Every bank account in [Mobile Automatic Payments](/modules/automatic-payments/mobile) needs **its own phone** — in practice, its own **BlueStacks instance**. The usual question is how many your computer can handle. This page gives you the number, the settings for each instance, and how to verify it on your own machine before creating the accounts.
+
+<Info>
+  You don't need a new or powerful computer. An 8-year-old office PC runs 3 phones just fine **if it's set up properly** — and the setup matters more than the hardware.
+</Info>
+
+## The quick math
+
+Two numbers decide it: **RAM** and the processor's **physical cores**. The lower of the two is your limit.
+
+```text
+Phones = the lower of:
+   (total RAM − 5 GB) ÷ 2.5 GB      ← what's left after Windows and the browser
+   physical cores − 1               ← one is left for the system
+```
+
+| Your computer | Phones at once |
+| --- | --- |
+| 8 GB RAM · 4 cores | **1** |
+| 16 GB RAM · 4 cores (i5-6600K, i5-7500, i5-8400, Ryzen 3…) | **3** |
+| 16 GB RAM · 6–8 cores | **4** |
+| 32 GB RAM · 6 cores | **5** |
+| 32 GB RAM · 8 cores or more | **7** |
+
+<Note>
+  The number is **how many phones you can keep running at once**, not how many payments per hour you make. Each phone handles one payment at a time; if you have 2 bank accounts, 2 instances are plenty and the machine has room to spare.
+</Note>
+
+<Warning>
+  **The processor is what stops you first, not the RAM.** RAM lets you _open_ the instances; the cores are what run the payments. If you go over on cores, RAM looks fine in Task Manager but payments start **timing out** — the bank app takes longer to respond than the system waits. When you see that symptom, remove an instance before trying anything else.
+</Warning>
+
+## Minimum requirements
+
+<CardGroup cols={2}>
+  <Card title="Minimum (1 phone)" icon="circle-check">
+    64-bit Windows 10/11 · 8 GB RAM · 4 cores · **SSD** · virtualization enabled in the BIOS · 20 GB free disk space.
+  </Card>
+
+  <Card title="Recommended (3 phones)" icon="star">
+    64-bit Windows 10/11 · 16 GB RAM · 4 or more cores · **SSD** · virtualization enabled · 60 GB free disk space · wired internet.
+  </Card>
+</CardGroup>
+
+<Warning>
+  **The drive has to be an SSD.** On a mechanical hard drive, BlueStacks boots and runs so slowly that payments time out even with RAM and cores to spare. This isn't a comfort recommendation.
+</Warning>
+
+## How to configure each BlueStacks instance
+
+BlueStacks' defaults are built for **games**: they ask for far more machine than a bank app needs. Turning them down fits more phones on the same computer and makes them run better.
+
+In BlueStacks: **⚙ Settings** inside each instance.
+
+| Section | Setting | Recommended value | Why |
+| --- | --- | --- | --- |
+| Performance | CPU allocation | **2 cores** (1 if you'll run 4 or more instances) | The bank app doesn't use more |
+| Performance | Memory allocation | **2 GB** | 4 GB is for games; here it's wasted |
+| Performance | Performance mode | **Balanced** | "High performance" reserves machine it won't use |
+| Performance | Frame rate (FPS) | **30** | Going from 60 to 30 takes real load off the processor |
+| Performance | High frame rate | **Off** | Same |
+| Display | Resolution | **Portrait, 720 × 1280** | Bank apps are portrait; fewer pixels, less work |
+| Display | Pixel density (DPI) | **240 DPI (medium)** | If the bank app looks broken, go up to 1080 × 1920 and 320 DPI |
+| Graphics | ASTC textures | **Disabled** | Decoding them in software costs processor |
+| Advanced | **Android Debug Bridge (ADB)** | **On** | Without it the desktop app can't see the phone |
+| — | Eco Mode | **Off** | It throttles the instance right when a payment comes in |
+
+<Warning>
+  **Configure the instance BEFORE installing the bank app.** Changing its resolution, DPI, or device profile afterwards can make the bank read it as **a new phone** and ask you to verify again or block you for 24–48 h — and make Silver5 see it as a different device, leaving the bank account pointing at one that no longer exists.
+</Warning>
+
+<Warning>
+  **Never clone an instance to make the second one.** A copy is detected as **the same device**: the desktop app sees a single phone and the second account never pays. Always create a **fresh instance from scratch** (BlueStacks Multi-Instance Manager → **New instance**).
+</Warning>
+
+<Info>
+  All the instances are handled by **a single** Silver5 desktop app, with **a single token**. Don't open the app twice: two copies with the same user kick each other out and you'll see "Silver5 disconnected" in a loop.
+</Info>
+
+## Setting up Windows
+
+The app runs **24/7 with nobody watching**. These five things are the difference between it running on its own and you waking up to failed payments.
+
+<AccordionGroup>
+  <Accordion title="1. Enable virtualization in the BIOS" icon="microchip">
+    This is the number one cause of "it's incredibly slow". Without virtualization (**Intel VT-x** or **AMD-V**), BlueStacks still works but several times slower, and payments time out.
+
+    BlueStacks warns you if it's off. You enable it by entering the BIOS/UEFI when the computer boots (`Del`, `F2`, or `F10` depending on the brand) and looking for **Intel Virtualization Technology** / **SVM Mode** → **Enabled**.
+  </Accordion>
+
+  <Accordion title="2. Turn off Hyper-V and Memory Integrity" icon="shield-halved">
+    On Windows 11 they're on out of the box and they cost the emulator a good chunk of performance.
+
+    - **Windows Security → Device security → Core isolation → Memory integrity → Off.**
+    - **Control Panel → Programs → Turn Windows features on or off** → uncheck **Hyper-V**, **Virtual Machine Platform**, and **Windows Sandbox**.
+
+    Restart after changing them.
+  </Accordion>
+
+  <Accordion title="3. Keep the computer from sleeping" icon="power-off">
+    **Settings → System → Power & battery**: sleep set to **Never**. The screen can turn off, the computer can't.
+
+    Also pick the **High performance** power plan. A sleeping computer is a computer that doesn't pay.
+  </Accordion>
+
+  <Accordion title="4. Exclude BlueStacks from the antivirus" icon="virus-slash">
+    The antivirus scans each instance's virtual disks over and over, and you feel it.
+
+    **Windows Security → Virus & threat protection → Manage settings → Exclusions** → add the BlueStacks folder (`C:\ProgramData\BlueStacks_nxt`).
+  </Accordion>
+
+  <Accordion title="5. Keep Windows Update in check" icon="rotate">
+    An automatic restart shuts down every instance and cuts off payments in progress. Under **Windows Update → Advanced options**, set your **active hours** so it won't restart during your operating hours.
+  </Accordion>
+</AccordionGroup>
+
+## On Mac
+
+BlueStacks Air runs on Apple Silicon Macs (M1 through M4). Same criteria, with the advantage that these machines are more efficient:
+
+| Your Mac | Phones at once |
+| --- | --- |
+| M1/M2/M3 · 8 GB | **1–2** |
+| M1/M2/M3 · 16 GB | **3–4** |
+| M-Pro/Max · 32 GB or more | **6 or more** |
+
+Under **System Settings → Lock Screen**, set sleep to **Never** while plugged in.
+
+## Verify it on your own machine
+
+The number in the table is a conservative estimate: every computer is different. Before creating N bank accounts, run this test once.
+
+<Steps>
+  <Step title="Open every instance and wait 10 minutes">
+    With the bank apps open and logged in, exactly as they'll sit in operation.
+  </Step>
+  <Step title="Check Task Manager (Ctrl + Shift + Esc)">
+    At idle you should see **memory below 85%** and **CPU below 30%**. If you're already above that at idle, you've got too many instances.
+  </Step>
+  <Step title="Run a test payment on every phone at the same time">
+    That's the real worst case. All of them have to reach the receipt.
+  </Step>
+  <Step title="Read the result">
+    If any of them times out, or the processor stays pinned at 100%, **you're one instance over your machine's limit**. Remove one and repeat.
+  </Step>
+</Steps>
+
+<Tip>
+  Write down the number you got and operate **one below it**. That margin is what absorbs a bank app update, a high-volume day, or a browser with a lot of tabs open.
+</Tip>
+
+## When to add a second computer
+
+<CardGroup cols={2}>
+  <Card title="More RAM" icon="memory">
+    Cheapest and first: going from 16 to 32 GB raises the ceiling right away. **But** if the processor has 4 cores, you won't get past 4 phones no matter how much RAM you add.
+  </Card>
+
+  <Card title="A second computer" icon="computer">
+    Past 5 or 6 phones, or if you don't want one machine being off to leave you unable to operate, split the accounts across two computers.
+  </Card>
+</CardGroup>
+
+<Warning>
+  The second computer needs **its own operator user in Silver5**, with its own token. Two computers connected with the **same** user kick each other out and neither one pays.
+</Warning>
