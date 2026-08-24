@@ -54,7 +54,8 @@
                 "icon": "money-check-dollar",
                 "pages": [
                   "modules/automatic-payments/browser",
-                  "modules/automatic-payments/mobile"
+                  "modules/automatic-payments/mobile",
+                  "modules/automatic-payments/pc-requirements"
                 ]
               },
               {
@@ -137,7 +138,8 @@
                 "icon": "money-check-dollar",
                 "pages": [
                   "es/modules/automatic-payments/browser",
-                  "es/modules/automatic-payments/mobile"
+                  "es/modules/automatic-payments/mobile",
+                  "es/modules/automatic-payments/pc-requirements"
                 ]
               },
               {
