@@ -1,0 +1,173 @@
+---
+title: "Requisitos de la computadora y cuántos teléfonos aguanta"
+sidebarTitle: "Requisitos de la PC"
+description: "Cuántas instancias de BlueStacks podés correr en simultáneo según tu computadora, con qué configuración dejar cada una y cómo preparar Windows para que corran 24/7."
+icon: "microchip"
+---
+
+Cada cuenta bancaria de [Pagos Automáticos Mobile](/es/modules/automatic-payments/mobile) necesita **su propio teléfono** — en la práctica, su propia **instancia de BlueStacks**. La pregunta de siempre es cuántas aguanta la computadora. Esta página te da el número, la configuración de cada instancia y cómo comprobarlo en tu máquina antes de dar de alta las cuentas.
+
+<Info>
+  No necesitás una computadora nueva ni potente. Una PC de oficina de hace 8 años corre 3 teléfonos sin problema **si está bien configurada** — y la configuración pesa más que el hardware.
+</Info>
+
+## La cuenta rápida
+
+Dos números mandan: la **RAM** y los **núcleos físicos** del procesador. El menor de los dos es tu límite.
+
+```text
+Teléfonos = el menor de:
+   (RAM total − 5 GB) ÷ 2,5 GB          ← lo que queda después de Windows y el navegador
+   núcleos físicos del procesador − 1   ← uno se le deja al sistema
+```
+
+| Tu computadora | Teléfonos en simultáneo |
+| --- | --- |
+| 8 GB RAM · 4 núcleos | **1** |
+| 16 GB RAM · 4 núcleos (i5-6600K, i5-7500, i5-8400, Ryzen 3…) | **3** |
+| 16 GB RAM · 6–8 núcleos | **4** |
+| 32 GB RAM · 6 núcleos | **5** |
+| 32 GB RAM · 8 núcleos o más | **7** |
+
+<Note>
+  El número es **cuántos teléfonos podés tener prendidos a la vez**, no cuántos pagos por hora hacés. Cada teléfono hace un pago por vez; si tenés 2 cuentas bancarias, 2 instancias alcanzan y sobra máquina.
+</Note>
+
+<Warning>
+  **El que te frena primero es el procesador, no la RAM.** La RAM te deja _abrir_ las instancias; los núcleos son los que ejecutan los pagos. Si te pasás de núcleos, la RAM se ve bien en el Administrador de tareas pero los pagos empiezan a **cortarse por tiempo de espera** — la app del banco tarda más en responder de lo que el sistema espera. Ante ese síntoma, sacá una instancia antes que cualquier otra cosa.
+</Warning>
+
+## Requisitos mínimos
+
+<CardGroup cols={2}>
+  <Card title="Mínimo (1 teléfono)" icon="circle-check">
+    Windows 10/11 de 64 bits · 8 GB de RAM · 4 núcleos · **SSD** · virtualización activada en el BIOS · 20 GB libres de disco.
+  </Card>
+
+  <Card title="Recomendado (3 teléfonos)" icon="star">
+    Windows 10/11 de 64 bits · 16 GB de RAM · 4 núcleos o más · **SSD** · virtualización activada · 60 GB libres de disco · internet por cable.
+  </Card>
+</CardGroup>
+
+<Warning>
+  **El disco tiene que ser SSD.** Con disco mecánico BlueStacks arranca y opera tan lento que los pagos se cortan por tiempo de espera aunque sobren RAM y núcleos. No es una recomendación de comodidad.
+</Warning>
+
+## Cómo configurar cada instancia de BlueStacks
+
+Los valores por defecto de BlueStacks están pensados para **juegos**: piden mucha más máquina de la que necesita la app de un banco. Bajándolos, entran más teléfonos en la misma computadora y andan mejor.
+
+En BlueStacks: **⚙ Settings (Ajustes)** dentro de cada instancia.
+
+| Sección | Opción | Valor recomendado | Por qué |
+| --- | --- | --- | --- |
+| Performance | Asignación de CPU | **2 núcleos** (1 si vas a correr 4 o más instancias) | La app del banco no usa más |
+| Performance | Asignación de memoria | **2 GB** | 4 GB es para juegos; acá se desperdicia |
+| Performance | Modo de rendimiento | **Equilibrado** | "Alto rendimiento" le reserva máquina que no usa |
+| Performance | Cuadros por segundo (FPS) | **30** | Bajar de 60 a 30 saca carga real del procesador |
+| Performance | Alta tasa de refresco | **Desactivado** | Ídem |
+| Display | Resolución | **Vertical, 720 × 1280** | Las apps de banco son verticales; menos píxeles, menos trabajo |
+| Display | Densidad de píxeles (DPI) | **240 DPI (media)** | Si la app del banco se ve rota, subí a 1080 × 1920 y 320 DPI |
+| Graphics | Texturas ASTC | **Desactivado** | Decodificarlas por software cuesta procesador |
+| Advanced | **Android Debug Bridge (ADB)** | **Activado** | Sin esto la app de escritorio no ve el teléfono |
+| — | Modo Eco | **Desactivado** | Frena la instancia justo cuando entra un pago |
+
+<Warning>
+  **Configurá la instancia ANTES de instalar la app del banco.** Cambiarle después la resolución, el DPI o el perfil de dispositivo puede hacer que el banco la lea como **un teléfono nuevo** y te pida verificar de nuevo o te bloquee 24–48 h — y que Silver5 la vea como otro dispositivo, dejando la cuenta bancaria apuntando a uno que ya no existe.
+</Warning>
+
+<Warning>
+  **Nunca clones una instancia para hacer la segunda.** Una copia se detecta como **el mismo dispositivo**: la app de escritorio ve un solo teléfono y la segunda cuenta nunca llega a pagar. Creá siempre una **instancia nueva desde cero** (BlueStacks Multi-Instance Manager → **Nueva instancia**).
+</Warning>
+
+<Info>
+  Todas las instancias las maneja **una sola** app de escritorio de Silver5, con **un solo token**. No abras la app dos veces: dos copias con el mismo usuario se expulsan entre sí y vas a ver "Silver5 desconectado" en loop.
+</Info>
+
+## Preparar Windows
+
+La app corre **24/7 y sin nadie mirando**. Estas cinco cosas son las que hacen la diferencia entre que funcione sola y que te despiertes con pagos caídos.
+
+<AccordionGroup>
+  <Accordion title="1. Activá la virtualización en el BIOS" icon="microchip">
+    Es la causa número uno de "va lentísimo". Sin virtualización (**Intel VT-x** o **AMD-V**), BlueStacks funciona igual pero varias veces más lento, y los pagos se cortan por tiempo de espera.
+
+    BlueStacks te avisa si está apagada. Se activa entrando al BIOS/UEFI al prender la computadora (tecla `Supr`, `F2` o `F10` según la marca) y buscando **Intel Virtualization Technology** / **SVM Mode** → **Enabled**.
+  </Accordion>
+
+  <Accordion title="2. Desactivá Hyper-V y la Integridad de memoria" icon="shield-halved">
+    En Windows 11 vienen activados de fábrica y le sacan un buen porcentaje de rendimiento al emulador.
+
+    - **Seguridad de Windows → Seguridad del dispositivo → Aislamiento del núcleo → Integridad de memoria → Desactivado.**
+    - **Panel de control → Programas → Activar o desactivar características de Windows** → destildar **Hyper-V**, **Plataforma de máquina virtual** y **Windows Sandbox**.
+
+    Reiniciá después de tocarlos.
+  </Accordion>
+
+  <Accordion title="3. Que la computadora no se suspenda" icon="power-off">
+    **Configuración → Sistema → Inicio/apagado y batería**: suspensión en **Nunca**. La pantalla se puede apagar, la computadora no.
+
+    Elegí también el plan de energía **Alto rendimiento**. Una computadora suspendida es una computadora que no paga.
+  </Accordion>
+
+  <Accordion title="4. Excluí BlueStacks del antivirus" icon="virus-slash">
+    El antivirus escanea los discos virtuales de cada instancia una y otra vez, y eso se siente.
+
+    **Seguridad de Windows → Protección antivirus → Administrar la configuración → Exclusiones** → agregá la carpeta de BlueStacks (`C:\ProgramData\BlueStacks_nxt`).
+  </Accordion>
+
+  <Accordion title="5. Controlá las actualizaciones de Windows" icon="rotate">
+    Un reinicio automático apaga todas las instancias y corta los pagos en curso. En **Windows Update → Opciones avanzadas**, configurá las **horas de actividad** para que no reinicie en tu horario de operación.
+  </Accordion>
+</AccordionGroup>
+
+## En Mac
+
+BlueStacks Air corre en Mac con Apple Silicon (M1 a M4). El criterio es el mismo, con la ventaja de que estos equipos son más eficientes:
+
+| Tu Mac | Teléfonos en simultáneo |
+| --- | --- |
+| M1/M2/M3 · 8 GB | **1–2** |
+| M1/M2/M3 · 16 GB | **3–4** |
+| M-Pro/Max · 32 GB o más | **6\+** |
+
+En **Configuración del Sistema → Bloqueo y suspensión**, poné la suspensión en **Nunca** mientras esté enchufada.
+
+## Comprobalo en tu máquina
+
+El número de la tabla es una estimación conservadora: cada computadora es distinta. Antes de dar de alta N cuentas bancarias, hacé esta prueba una vez.
+
+<Steps>
+  <Step title="Abrí todas las instancias y esperá 10 minutos">
+    Con las apps de los bancos abiertas y la sesión iniciada, como quedan en operación.
+  </Step>
+  <Step title="Mirá el Administrador de tareas (Ctrl + Shift + Esc)">
+    En reposo tenés que ver **memoria por debajo del 85 %** y **CPU por debajo del 30 %**. Si en reposo ya estás arriba de eso, te pasaste de instancias.
+  </Step>
+  <Step title="Hacé una prueba de pago en cada teléfono, al mismo tiempo">
+    Es el peor caso real. Todas tienen que llegar al comprobante.
+  </Step>
+  <Step title="Leé el resultado">
+    Si alguna se corta por tiempo de espera, o el procesador se queda clavado en 100 %, **estás una instancia por encima del límite de tu máquina**. Sacá una y repetí.
+  </Step>
+</Steps>
+
+<Tip>
+  Anotá el número que te dio y quedate **uno por debajo** para operar. El margen es lo que absorbe una actualización del banco, un día de mucho volumen o el navegador con muchas pestañas abiertas.
+</Tip>
+
+## Cuándo conviene sumar una segunda computadora
+
+<CardGroup cols={2}>
+  <Card title="Ampliar la RAM" icon="memory">
+    Es lo más barato y lo primero: de 16 a 32 GB te sube el techo enseguida. **Pero** si el procesador tiene 4 núcleos, no vas a pasar de 4 teléfonos por más RAM que le pongas.
+  </Card>
+
+  <Card title="Segunda computadora" icon="computer">
+    A partir de 5 o 6 teléfonos, o si no querés que una sola máquina apagada te deje sin operar, conviene repartir las cuentas en dos computadoras.
+  </Card>
+</CardGroup>
+
+<Warning>
+  La segunda computadora necesita **su propio usuario operador en Silver5**, con su propio token. Dos computadoras conectadas con el **mismo** usuario se expulsan entre sí y ninguna de las dos paga.
+</Warning>
