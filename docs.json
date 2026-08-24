@@ -50,6 +50,14 @@
             "tab": "Modules",
             "groups": [
               {
+                "group": "Automatic Payments",
+                "icon": "money-check-dollar",
+                "pages": [
+                  "modules/automatic-payments/browser",
+                  "modules/automatic-payments/mobile"
+                ]
+              },
+              {
                 "group": "Automation",
                 "pages": [
                   "modules/positioning-bot",
@@ -70,14 +78,6 @@
                 "pages": [
                   "modules/kyc-client-management",
                   "modules/ai-agent"
-                ]
-              },
-              {
-                "group": "Automatic Payments",
-                "icon": "money-check-dollar",
-                "pages": [
-                  "modules/automatic-payments/browser",
-                  "modules/automatic-payments/mobile"
                 ]
               }
             ]
@@ -133,6 +133,14 @@
             "tab": "Módulos",
             "groups": [
               {
+                "group": "Pagos Automáticos",
+                "icon": "money-check-dollar",
+                "pages": [
+                  "es/modules/automatic-payments/browser",
+                  "es/modules/automatic-payments/mobile"
+                ]
+              },
+              {
                 "group": "Automatización",
                 "pages": [
                   "es/modules/positioning-bot",
@@ -153,14 +161,6 @@
                 "pages": [
                   "es/modules/kyc-client-management",
                   "es/modules/ai-agent"
-                ]
-              },
-              {
-                "group": "Pagos Automáticos",
-                "icon": "money-check-dollar",
-                "pages": [
-                  "es/modules/automatic-payments/browser",
-                  "es/modules/automatic-payments/mobile"
                 ]
               }
             ]
@@ -194,5 +194,17 @@
     "socials": {
       "linkedin": "https://www.linkedin.com/company/silver5ai"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/modules/automatic-payments/browser",
+      "destination": "/modules/automatic-payments/mobile",
+      "permanent": false
+    },
+    {
+      "source": "/es/modules/automatic-payments/browser",
+      "destination": "/es/modules/automatic-payments/mobile",
+      "permanent": false
+    }
+  ]
 }
