@@ -10,7 +10,7 @@ The **Mobile** variant automates your P2P order payments with the **Silver5 desk
 ## How it works
 
 <Frame caption="Video tutorial — From zero to a working automatic payment">
-  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/qEHnM7SmDwQ" title="Mobile Automatic Payments — Full setup" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+  <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/fFtn8ihVjQk" title="Automatic P2P payments with Silver5: full guide in 4 steps" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 </Frame>
 
 <Tip>
@@ -54,7 +54,7 @@ Everything involving the desktop app comes first and together; you touch the clo
 - A computer running **Windows or Mac**, with the **Silver5 desktop app** installed.
 - **BlueStacks** (or a real Android phone over USB).
 - Your bank's app and your login credentials.
-- Your Silver5 **connection token**.
+- Your Silver5 account (email and password) and your **authenticator app** for the 2FA code.
 
 <Tip>
   Wondering how many phones your computer can handle and how to configure each BlueStacks instance? It's all in [PC Requirements](/modules/automatic-payments/pc-requirements).
@@ -92,7 +92,7 @@ Installers for the Silver5 desktop app and the BlueStacks emulator:
 
     Turn on the debug bridge once: ⚙ **Settings → Advanced → Android Debug Bridge → ON**. Without it, the desktop app can't see the phone.
 
-    <Frame caption="Step 1 — Installing BlueStacks (video in Spanish)">
+    <Frame caption="BlueStacks — Installation (video in Spanish)">
       <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/WzX5w9hkyac" title="Step 1: Installing BlueStacks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
     </Frame>
   </Step>
@@ -103,17 +103,17 @@ Installers for the Silver5 desktop app and the BlueStacks emulator:
       Leave the bank app **logged in**. If the session closes, the payment won't go through.
     </Warning>
   </Step>
-  <Step title="Install the Silver5 desktop app">
-    In Silver5 → **Settings → Desktop app connection → Download**. Install it and open it.
+  <Step title="Install the desktop app and log in">
+    In Silver5 → **Settings → Desktop app**, tap **Download for Windows** or **Download for macOS**. Open it and log in with the same email and password you use on the web, plus the **2FA code** from your authenticator app. At the top it should read **🟢 Logged in to Silver5**.
 
-    <Frame caption="Step 2 — Installing the desktop app (video in Spanish)">
-      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/ytTsvjmWzUo" title="Step 2: Installing the desktop app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+    <Frame caption="Tutorial 1 of 4 — Install the desktop app (video in Spanish)">
+      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/vsqxSTuzBXY" title="How to install the Silver5 desktop app (Windows and Mac) · 1/4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
     </Frame>
   </Step>
   <Step title="Check that the phone shows up on its own">
     In the app's **📱 Devices** section, your phone appears on its own. There's nothing to enter by hand.
 
-    <Frame caption="Step 3 — Connecting the device (BlueStacks) (video in Spanish)">
+    <Frame caption="BlueStacks — Connecting the device (video in Spanish)">
       <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/0RqInPs3xJI" title="Step 3: Connecting the device (BlueStacks)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
     </Frame>
   </Step>
@@ -124,22 +124,13 @@ Installers for the Silver5 desktop app and the BlueStacks emulator:
       🔒 Credentials are stored **encrypted in your computer's keychain** (Keychain on Mac, Credential Locker on Windows). They **never** travel to Silver5 nor are they stored in plain text. You hold custody.
     </Warning>
   </Step>
-  <Step title="Connect the app to Silver5 (token)">
-    In Silver5 → **Settings → Desktop app connection → Generate token**. Confirm with your **2FA code**. The token is shown **only once** — copy it right then.
-
-    In the desktop app, paste the token and tap **Connect to Silver5**. At the top it should read **🟢 Connected to Silver5**.
-
-    <Frame caption="Step 4 — Connecting the desktop app to Silver5 (video in Spanish)">
-      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/HuqH81Oc64c" title="Step 4: Connecting the desktop app to Silver5 (cloud)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-    </Frame>
-  </Step>
   <Step title="Create the bank account and assign it the phone">
     In Silver5 → **Bank accounts → New**. Choose the **bank**, the **Mobile** channel, and **assign the operator** who has the desktop app open.
 
     On the **Device** card, tap **Search** and pick the phone. That's where this account's money will come out of.
 
-    <Frame caption="Step 5 — Creating the bank account (video in Spanish)">
-      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/0td0TP7Z6Dw" title="Step 5: Creating the bank account in Silver5 (cloud)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+    <Frame caption="Tutorial 3 of 4 — Add your bank account (video in Spanish)">
+      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/HV8YFaca2u4" title="How to add your bank account for automatic payments · 3/4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
     </Frame>
   </Step>
   <Step title="Run a test payment">
@@ -150,8 +141,8 @@ Installers for the Silver5 desktop app and the BlueStacks emulator:
   <Step title="Create the integration and set the limits">
     If the test payment went through, go to the bank account and **create the integration**. Choose which **payment method** it's for and set the **limits**.
 
-    <Frame caption="Step 6 — Creating the payment agent (video in Spanish)">
-      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/aOrrXhljQJ0" title="Step 6: Creating the payment agent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+    <Frame caption="Tutorial 4 of 4 — Set up the payment agent (video in Spanish)">
+      <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/6EzFrbhYn-Q" title="How to set up the automatic P2P payment agent · 4/4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
     </Frame>
   </Step>
   <Step title="Activate">
@@ -210,6 +201,10 @@ You can have **several bank accounts paying in parallel**, one per phone. To add
 Instead of the emulator you can connect a real Android phone.
 
 <Accordion title="Steps to connect over USB" icon="usb">
+  <Frame caption="Tutorial 2 of 4 — Connect your Android phone over USB (video in Spanish)">
+    <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/ybdLcRGBZLA" title="How to connect your Android phone over USB to Silver5 · 2/4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+  </Frame>
+
   <Steps>
     <Step title="Connect the phone over USB">
       Plug the phone into the computer with the cable.
