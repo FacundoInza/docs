@@ -59,6 +59,13 @@
                 ]
               },
               {
+                "group": "OTC Desk",
+                "icon": "comments-dollar",
+                "pages": [
+                  "modules/otc-desk"
+                ]
+              },
+              {
                 "group": "Automation",
                 "pages": [
                   "modules/positioning-bot",
@@ -140,6 +147,13 @@
                   "es/modules/automatic-payments/browser",
                   "es/modules/automatic-payments/mobile",
                   "es/modules/automatic-payments/pc-requirements"
+                ]
+              },
+              {
+                "group": "Mesa OTC",
+                "icon": "comments-dollar",
+                "pages": [
+                  "es/modules/otc-desk"
                 ]
               },
               {
